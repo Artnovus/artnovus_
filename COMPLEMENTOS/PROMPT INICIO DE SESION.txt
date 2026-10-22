@@ -1,0 +1,69 @@
+Actúa como un desarrollador web Frontend Senior experto en HTML5, CSS3 y JavaScript moderno (ES6+).
+
+### Contexto del Proyecto
+Estoy desarrollando el sitio web informativo para la agencia multimedia "ARTNOVUS".
+El proyecto está estructurado de manera modular en carpetas independientes para cada sección:
+
+miProyecto/
+├── 1.inicio/
+│   ├── inicio.html
+│   ├── styles.css
+│   ├── script.js
+│   └── ImagenesInicio/
+├── 2.servicios/
+│   ├── servicios.html
+│   ├── styles.css
+│   ├── script.js
+│   └── ImagenesServcios/
+├── 3.nosotros/
+│   ├── nosotros.html
+│   ├── styles.css
+│   ├── script.js
+│   └── ImagenesNosotros/
+├── 4.contacto/
+│   ├── contacto.html
+│   ├── styles.css
+│   ├── script.js
+│   └── ImagenesContacto/
+└── 5.portafolio/
+    ├── portafolio.html
+    └── imagenes portafolio/
+
+---
+
+### Tarea
+Necesito implementar un **sistema de simulación de inicio de sesión sin backend ni base de datos** (utilizando datos mock de usuarios harcodeados en JavaScript). 
+
+Debes crear dos (2) páginas web nuevas con sus respectivos archivos de estilos y lógica JS:
+1. `ingreso.html` (ubicada dentro de la carpeta `1.inicio/` o donde corresponda)
+2. `usuarios.html` (ubicada dentro de la carpeta `1.inicio/`)
+
+---
+
+### Requerimientos Políticos y Funcionales
+
+#### 1. Página `ingreso.html`
+* **Estética y Diseño:** Mantener la misma línea gráfica, tipografía, paleta de colores y Header/Footer del sitio web. Incluir el logo de ARTNOVUS.
+* **Encabezados:** Título de bienvenida y mensaje amigable pidiendo las credenciales.
+* **Formulario de Login:**
+  * Campo de Correo Electrónico.
+  * Campo de Contraseña.
+  * **Sistema de Cautela / Captcha:** Captcha matemático simple y aleatorio (ej. "¿Cuánto es 5 + 3?") que cambie dinámicamente con JS en cada carga.
+  * **Enlace "Olvidaste tu contraseña":** Redirige a `../4.contacto/contacto.html`.
+  * **Botón "Regresar":** Redirige a `inicio.html`.
+  * **Botón "Ingresar":** Ejecuta la validación JS.
+
+#### 2. Lógica de Validación de Login (`script.js` / JS embebido):
+* Manejar un arreglo/objeto JS con al menos 2 usuarios de prueba (ejemplo: `admin@artnovus.com` / `123456`).
+* **Regla de Validación:** 
+  * Validar formato de correo, contraseña correcta Y respuesta del cálculo matemático.
+* **Caso de Éxito:** Redirigir a `usuarios.html`, guardando temporalmente los datos de la sesión (ej. en `localStorage` o `sessionStorage`) para mostrar el correo del usuario logueado.
+* **Caso de Error:** Mostrar una ventana modal / popup amigable con tres botones:
+  1. *Intentar nuevamente:* Recarga o limpia `ingreso.html`.
+  2. *Cancelar:* Redirige a `inicio.html`.
+  3. *Ayuda:* Redirige a `../4.contacto/contacto.html`.
+
+#### 3. Página `usuarios.html`
+* **Estructura:** Clonar la estructura y estilo visual de `inicio.html`.
+* **Diferenciador visual de sesión activa:**
+  * En la barra superior / Header, mostrar la silueta/avatar de usuario junto con el correo electrónico del usuario autenticado (leído desde la sesión activa).

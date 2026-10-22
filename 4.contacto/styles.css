@@ -1,0 +1,635 @@
+/* =========================================================
+   1. REINICIO Y ESTILOS GENERALES
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #0b0b0b;
+  color: #ffffff;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================================================
+   2. HEADER / BARRA DE NAVEGACIÓN SUPERIOR
+   ========================================================= */
+.site-header {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 100;
+}
+
+/* Logo ARTNOVUS */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo .logo-icon {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #b89241;
+  line-height: 1;
+}
+
+.brand-logo .logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-logo .company-name {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #9e782f;
+  line-height: 1;
+}
+
+.brand-logo .company-tagline {
+  font-size: 0.65rem;
+  color: #666666;
+  text-transform: lowercase;
+  line-height: 1.1;
+}
+
+/* Menú Navegación */
+.nav-menu {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #b89241;
+}
+
+/* Acciones del Header */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.btn-login {
+  color: #333333;
+}
+
+.btn-contact {
+  color: #333333;
+}
+
+/* =========================================================
+   3. CONTENIDO PRINCIPAL: CONTACTO
+   ========================================================= */
+.contact-section {
+  background: radial-gradient(ellipse at bottom, rgba(160, 120, 40, 0.45) 0%, rgba(10, 10, 10, 0.95) 70%),
+              radial-gradient(ellipse at top, rgba(30, 30, 30, 1) 0%, rgba(5, 5, 5, 1) 100%);
+  padding: 40px 20px 60px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Encabezado Principal */
+.contact-header {
+  text-align: center;
+  max-width: 700px;
+  margin-bottom: 40px;
+}
+
+.contact-title {
+  font-family: 'Cinzel', serif;
+  font-size: 3.5rem;
+  color: #c99e43;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  text-shadow: 0 0 15px rgba(201, 158, 67, 0.2);
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.45;
+  color: #e5e5e5;
+  font-weight: 400;
+}
+
+/* Grid de Cajas de Contacto */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  width: 100%;
+  max-width: 1150px;
+}
+
+.contact-box {
+  border: 2px solid #b89241;
+  background-color: rgba(5, 5, 5, 0.85);
+  border-radius: 2px;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* CAJA 1: Redes Sociales */
+.social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  height: 100%;
+  justify-content: center;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 400;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-item:hover {
+  transform: translateX(5px);
+  color: #c99e43;
+}
+
+.social-icon {
+  width: 38px;
+  height: 38px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
+}
+
+.social-icon.no-border {
+  border: none;
+}
+
+.social-icon.no-border svg {
+  width: 36px;
+  height: 36px;
+}
+
+/* CAJA 2: Formulario */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-family: 'Cinzel', serif;
+  color: #c99e43;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: #ffffff;
+  border: 1px solid #d4af37;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  color: #000000;
+}
+
+.form-input:focus {
+  box-shadow: 0 0 8px rgba(201, 158, 67, 0.8);
+}
+
+.btn-send {
+  margin-top: 10px;
+  width: 100%;
+  background: linear-gradient(180deg, #d8ae53 0%, #b88d35 100%);
+  color: #000000;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 12px;
+  border-radius: 25px;
+  letter-spacing: 1px;
+  border: 1px solid #f0cd7d;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(201, 158, 67, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-send:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 22px rgba(201, 158, 67, 0.6);
+}
+
+/* CAJA 3: Imagen del Mapa */
+.map-box {
+  padding: 0;
+  overflow: hidden;
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 340px;
+}
+
+/* =========================================================
+   4. PIE DE P�GINA / FOOTER DORADO
+   ========================================================= */
+.footer-bar {
+  background: linear-gradient(180deg, #c49941 0%, #a47b2a 100%);
+  color: #000000;
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-icon {
+  width: 22px;
+  height: 22px;
+  stroke: #000000;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* =========================================================
+   5. DISEÑO RESPONSIVO
+   ========================================================= */
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .footer-bar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+/* El contenedor principal sigue agrupando logo y texto en horizontal */
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Para quitar subrayados o bordes del enlace de la imagen si los hubiera */
+.logo-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.brand-logo {
+  max-height: 40px;
+  width: auto;
+  display: block;
+}
+
+/* Mantiene el nombre y el lema en columna */
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brand-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.brand-tagline {
+  font-size: 0.75rem;
+  line-height: 1.2;
+  opacity: 0.8;
+  margin-top: 2px;
+}/* =========================================================
+   ESTILOS FOOTER ESTRUCTURADO Y BOTÓN FLOTANTE
+   ========================================================= */
+
+.footer-bar {
+  background: linear-gradient(180deg, #c49941 0%, #a47b2a 100%);
+  color: #000000;
+  padding: 20px 40px 15px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.footer-divider {
+  width: 90%;
+  max-width: 1100px;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 4px 0;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #000000;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* BOTÓN FLOTANTE DE WHATSAPP */
+.btn-wapp-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 25px;
+  width: 58px;
+  height: 58px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-wapp-flotante:hover {
+  transform: scale(1.1);
+  background-color: #20ba5a;
+} /* ==========================================
+   ESTILOS DEL MODAL DE INICIO DE SESIÓN
+   ========================================== */
+.login-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.login-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.login-modal-container {
+  background: #111822;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 420px;
+  padding: 40px 30px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.login-modal-overlay.active .login-modal-container {
+  transform: translateY(0);
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #a0aec0;
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-modal-btn:hover {
+  color: #ffffff;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.login-logo {
+  height: 50px;
+  margin-bottom: 12px;
+}
+
+.login-header h3 {
+  font-family: 'Cinzel', serif;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.login-header p {
+  color: #a0aec0;
+  font-size: 13px;
+}
+
+.login-form .input-group {
+  margin-bottom: 18px;
+}
+
+.login-form label {
+  display: block;
+  color: #e2e8f0;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper i.fa-envelope,
+.input-wrapper i.fa-lock {
+  position: absolute;
+  left: 14px;
+  color: #718096;
+  font-size: 14px;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 40px;
+  background-color: #1a2332;
+  border: 1px solid #2d3748;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input-wrapper input:focus {
+  border-color: #4a5568;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 14px;
+  color: #718096;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toggle-password:hover {
+  color: #ffffff;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 22px;
+  color: #a0aec0;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  text-transform: none;
+}
+
+.forgot-pass {
+  color: #729bc4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgot-pass:hover {
+  text-decoration: underline;
+}
+
+.submit-login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffffff;
+  color: #111822;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.submit-login-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}

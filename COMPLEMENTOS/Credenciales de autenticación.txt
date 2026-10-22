@@ -1,0 +1,12 @@
+// Base de datos Mock de usuarios
+
+
+admin@artnovus.com
+password: 123
+
+
+usuario@artnovus.com
+password: 123
+
+cliente@artnovus.com
+password: 123

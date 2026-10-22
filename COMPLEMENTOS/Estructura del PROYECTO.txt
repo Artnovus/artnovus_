@@ -1,0 +1,26 @@
+### Estructura del Directorio:
+
+ARTNOVUS/
+├── 1.inicio/
+│   ├── inicio.html
+│   ├── styles.css
+│   ├── script.js
+│   └── ImagenesInicio/
+├── 2.servicios/
+│   ├── servicios.html
+│   ├── styles.css
+│   ├── script.js
+│   └── ImagenesServcios/
+├── 3.nosotros/
+│   ├── nosotros.html
+│   ├── styles.css
+│   ├── script.js
+│   └── ImagenesNosotros/
+└── 4.contacto/
+│   ├── contacto.html
+│   ├── styles.css
+│   ├── script.js
+│   └── ImagenesContacto/
+└── 5.portafolio/
+    ├── portafolio.html
+    └── imagenes portafolio/

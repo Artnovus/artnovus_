@@ -1,0 +1,15 @@
+Actúa como un Desarrollador Web Frontend Senior experto en HTML5 y CSS3.
+
+Tengo un problema en mi sitio web: al autenticar correctamente al usuario, se redirige a usuarios.html y se muestra la información de sesión (avatar, correo, fecha y hora). Sin embargo, la página perdió el diseño, esquema, colores de fondo y estructura visual original de inicio.html.
+
+Necesito que reestructures usuarios.html para que sea una réplica exacta de inicio.html en términos de:
+
+Hoja de estilos vinculada (styles.css / CSS embebido).
+
+Estructura HTML del Header, Hero Section, Secciones de Servicios, Procesos y Footer.
+
+Paleta de colores, tipografías y efectos hover.
+
+El único cambio en usuarios.html debe ser en la barra superior (Header), donde se debe integrar el widget del perfil con el avatar, el correo del usuario (en un tono café/oscuro legible) y el botón de 'Cerrar Sesión'.
+
+Por favor, entrégame el código completo y corregido para usuarios.html."

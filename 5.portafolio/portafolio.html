@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARTNOVUS | Portafolio</title>
+ 
+  <!-- Fuentes e iconos externos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600;700&display=swap">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="imagenes portafolio/logo.png">
+
+  <!-- ESTILOS CSS -->
+  <style>
+    :root {
+      --gold: #C59B27;
+      --dark-gold: #B3861B;
+      --black: #080808;
+      --white: #FFFFFF;
+      --whatsapp-green: #25D366;
+      --card-bg: #111111;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #ffffff;
+      background-color: #080808;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* --- BOTÓN DE IDIOMA (UBICADO DESPUÉS DE HABLEMOS) --- */
+    .btn-lang-toggle {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #d4af37;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-lang-toggle:hover {
+      background: #d4af37;
+      color: #000000;
+      border-color: #d4af37;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    }
+
+    /* --- HEADER GLOBAL (NEGRO ELEGANTE) --- */
+    .main-header {
+      height: 75px;
+      background-color: #0a0a0a !important;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      width: 95%;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-link {
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      max-height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brand-name {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--gold);
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+
+    .brand-tagline {
+      font-size: 0.65rem;
+      color: #a0a0a0;
+      line-height: 1.2;
+      margin-top: 3px;
+    }
+
+    /* Menú de navegación unificado y estable */
+    .nav-menu {
+      display: flex !important;
+      list-style: none !important;
+      gap: 15px !important;
+      align-items: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .nav-link {
+      font-family: 'Montserrat', sans-serif !important;
+      font-size: 0.85rem !important;
+      font-weight: 600 !important;
+      color: #ffffff !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.8px !important;
+      padding: 8px 14px !important;
+      border-radius: 20px !important;
+      transition: background 0.3s ease, color 0.3s ease !important;
+      text-decoration: none !important;
+      display: inline-block !important;
+      text-align: center !important;
+      border: 1px solid transparent !important;
+    }
+
+    .nav-link:hover {
+      color: var(--gold) !important;
+      background-color: rgba(212, 175, 55, 0.1) !important;
+    }
+
+    .nav-link.active {
+      color: #000000 !important;
+      background: linear-gradient(135deg, #d4af37, #aa8c2c) !important;
+      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4) !important;
+      font-weight: 700 !important;
+      border: 1px solid #d4af37 !important;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .action-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 8px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .action-btn:hover {
+      background-color: var(--gold);
+      color: #000;
+      border-color: var(--gold);
+    }
+
+    .btn-whatsapp {
+      background-color: var(--whatsapp-green) !important;
+      border-color: var(--whatsapp-green) !important;
+      color: #ffffff !important;
+    }
+
+    .btn-whatsapp i {
+      color: #ffffff;
+      font-size: 1.1rem;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #128C7E !important;
+      border-color: #128C7E !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* --- HERO SECTION DE PORTAFOLIO --- */
+    .hero-portfolio {
+      position: relative;
+      width: 100%;
+      min-height: 320px;
+      padding: 70px 5% 50px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9));
+      z-index: 2;
+    }
+
+    .hero-content-wrapper {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      color: #FFF;
+    }
+
+    .hero-portfolio h1 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      display: inline-block;
+      cursor: default;
+      transition: all 0.4s ease;
+    }
+
+    .hero-portfolio h1:hover {
+      transform: translateX(10px);
+      color: #f3d06c;
+      text-shadow: 0 0 25px rgba(212, 175, 55, 0.6), 0 4px 20px rgba(0, 0, 0, 0.9);
+    }
+
+    .hero-portfolio p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      color: #DDD;
+      font-weight: 300;
+    }
+
+    /* --- FILTROS INTERACTIVOS DE CATEGORÍA --- */
+    .portfolio-filters {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 40px 5% 10px 5%;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: #ccc;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--gold);
+      color: #000;
+      border-color: var(--gold);
+      box-shadow: 0 4px 15px rgba(197, 155, 39, 0.3);
+    }
+
+    /* --- SECCIÓN PORTAFOLIO / EVIDENCIAS --- */
+    .portfolio-section {
+      padding: 40px 5% 60px 5%;
+      max-width: 1300px;
+      margin: 0 auto;
+      background-color: #080808;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-align: center;
+      letter-spacing: 1px;
+      display: block;
+      cursor: default;
+      transition: all 0.4s ease;
+    }
+
+    .section-title:hover {
+      transform: translateX(10px);
+      color: #f3d06c;
+      text-shadow: 0 0 25px rgba(212, 175, 55, 0.6), 0 4px 20px rgba(0, 0, 0, 0.9);
+    }
+
+    .portfolio-subtitle {
+      text-align: center;
+      color: #a0a0a0;
+      font-size: 0.9rem;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    /* ESTADÍSTICA DE IMPACTO ARRIBA */
+    .portfolio-stats-banner {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .stats-badge-main {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .portfolio-card {
+      position: relative;
+      background-color: var(--card-bg);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: left;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      transition: all 0.4s ease;
+      cursor: pointer;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .portfolio-card.hide {
+      display: none !important;
+    }
+
+    /* BADGE DE IMPACTO FLOTANTE EN CADA TARJETA */
+    .card-impact-badge {
+      position: absolute;
+      top: -12px;
+      right: 15px;
+      background-color: #0d261e;
+      color: var(--whatsapp-green);
+      border: 1px solid var(--whatsapp-green);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
+      z-index: 10;
+    }
+
+    .portfolio-card h4 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      margin-top: 5px;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+
+    .card-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 160px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    .foto-hover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    /* DESGLOSE DE EJECUCIÓN Y PIEZAS REALIZADAS */
+    .card-execution-info {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 10px;
+      margin-top: auto;
+    }
+
+    .card-execution-info h5 {
+      font-size: 0.7rem;
+      color: #a0a0a0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .card-execution-info ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .card-execution-info li {
+      font-size: 0.78rem;
+      color: #cccccc;
+      line-height: 1.35;
+      margin-bottom: 4px;
+      position: relative;
+      padding-left: 12px;
+    }
+
+    .card-execution-info li::before {
+      content: "•";
+      color: var(--gold);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(197, 155, 39, 0.25);
+      border-color: var(--gold);
+    }
+
+    .portfolio-card:hover .foto-hover {
+      transform: scale(1.1);
+      filter: brightness(1.1);
+    }
+
+    /* --- SECCIÓN DE PROYECTOS AUDIOVISUALES --- */
+    .video-projects-section {
+      background-color: #0a0a0a;
+      padding: 70px 5%;
+      border-top: 1px solid rgba(197, 155, 39, 0.2);
+      border-bottom: 1px solid rgba(197, 155, 39, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    .video-projects-section.hide {
+      display: none !important;
+    }
+
+    .video-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px;
+      margin-top: 30px;
+    }
+
+    .video-card {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.4s ease;
+    }
+
+    .video-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(197, 155, 39, 0.35);
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      background: #000;
+    }
+
+    .video-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-details {
+      padding: 22px;
+      text-align: left;
+    }
+
+    .video-details h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .video-details p {
+      color: #a0aec0;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    /* --- LLAMADO A LA ACCIÓN (CTA) FINAL --- */
+    .cta-banner-section {
+      background-color: #080808;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .cta-banner-box {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #0f0f0f;
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 30px rgba(197, 155, 39, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    .cta-banner-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(174, 140, 39, 0.784);
+    }
+
+    .cta-banner-box h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .cta-banner-box p {
+      color: #d0d0d0;
+      margin-bottom: 25px;
+      font-size: 0.95rem;
+    }
+
+    .btn-cta-gold {
+      background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+      color: #000;
+      font-weight: 700;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.4s ease;
+    }
+
+    .btn-cta-gold:hover {
+      transform: translateX(10px) translateY(-3px) scale(1.03);
+      color: #ffffff;
+      background: linear-gradient(135deg, #e6c158, #c59b27);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.7), 0 8px 25px rgba(0, 0, 0, 0.9);
+    }
+
+    /* --- FOOTER GLOBAL --- */
+    .main-footer {
+      background-color: var(--gold);
+      padding: 30px 5% 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      max-width: 1100px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .footer-copy {
+      border-top: 1px solid rgba(0, 0, 0, 0.15);
+      width: 100%;
+      text-align: center;
+      padding-top: 15px;
+      font-size: 0.8rem;
+    }
+
+    /* --- BOTÓN WHATSAPP FLOTANTE --- */
+    .btn-wapp-flotante {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 55px;
+      height: 55px;
+      background-color: var(--whatsapp-green);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      z-index: 9999;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-wapp-flotante:hover {
+      transform: scale(1.1);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .videos-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-menu {
+        display: none !important;
+      }
+      .menu-toggle {
+        display: block !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .menu-toggle { display: block !important; }
+      .footer-content { flex-direction: column; gap: 12px; align-items: center; }
+    }
+
+    /* Contenedor especial para imágenes verticales */
+    .card-img-wrapper.card-img-vertical {
+      background-color: #000000;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .foto-vertical {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-card:hover .foto-vertical {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER GLOBAL -->
+  <header class="main-header">
+    <div class="header-container">
+     
+      <!-- LOGO + NOMBRE DE LA EMPRESA -->
+      <div class="brand-container">
+        <a href="../1.inicio/inicio.html" class="logo-link">
+          <img src="imagenes portafolio/logo.png" alt="Logo ARTNOVUS" class="brand-logo">
+        </a>
+        <div class="brand-text">
+          <span class="brand-name">ARTNOVUS</span>
+          <span class="brand-tagline" data-tr-es="Agencia Multimedia" data-tr-en="Multimedia Agency" data-tr-fr="Agence Multimédia">Agencia Multimedia</span>
+        </div>
+      </div>
+
+      <!-- MENÚ DE NAVEGACIÓN -->
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="../1.inicio/index.html" class="nav-link" data-tr-es="INICIO" data-tr-en="HOME" data-tr-fr="ACCUEIL">INICIO</a></li>
+          <li><a href="../3.nosotros/nosotros.html" class="nav-link" data-tr-es="NOSOTROS" data-tr-en="ABOUT" data-tr-fr="À PROPOS">NOSOTROS</a></li>
+          <li><a href="../5.portafolio/portafolio.html" class="nav-link active" data-tr-es="PORTAFOLIO" data-tr-en="PORTFOLIO" data-tr-fr="PORTFOLIO">PORTAFOLIO</a></li>
+          <li><a href="../2.servicios/servicios.html" class="nav-link" data-tr-es="SERVICIOS" data-tr-en="SERVICES" data-tr-fr="SERVICES">SERVICIOS</a></li>
+          <li><a href="../4.contacto/contacto.html" class="nav-link" data-tr-es="CONTÁCTANOS" data-tr-en="CONTACT US" data-tr-fr="CONTACT">CONTÁCTANOS</a></li>
+        </ul>
+      </nav>
+
+      <!-- ACCIONES ENCABEZADO -->
+      <div class="header-actions">
+        <a href="../ingreso.html" class="action-btn">
+          <i class="fa-solid fa-user-gear"></i>
+          <span data-tr-es="INICIAR SESIÓN" data-tr-en="LOG IN" data-tr-fr="CONNEXION">INICIAR SESIÓN</span>
+        </a>
+        <a href="https://wa.me/573126668958" target="_blank" rel="noopener noreferrer" class="action-btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span data-tr-es="HABLEMOS" data-tr-en="LET'S TALK" data-tr-fr="PARLONS">HABLEMOS</span>
+        </a>
+
+        <!-- BOTÓN DE CAMBIO DE IDIOMA (UBICADO DESPUÉS DE HABLEMOS) -->
+        <button class="btn-lang-toggle" onclick="cycleLanguage()">
+          <i class="fa-solid fa-globe"></i> <span id="lang-label">ES</span>
+        </button>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION PORTAFOLIO -->
+    <section class="hero-portfolio">
+      <img src="imagenes portafolio/ima 2.jpeg" alt="Fondo Portafolio" class="hero-bg-img">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content-wrapper">
+        <h1 data-tr-es="NUESTRO PORTAFOLIO" data-tr-en="OUR PORTFOLIO" data-tr-fr="NOTRE PORTFOLIO">NUESTRO PORTAFOLIO</h1>
+        <p data-tr-es="Proyectos creados con estrategia, diseño e innovación digital para potenciar la presencia de tu marca." data-tr-en="Projects created with strategy, design, and digital innovation to enhance your brand's presence." data-tr-fr="Projets créés avec stratégie, design et innovation numérique pour valoriser la présence de votre marque.">Proyectos creados con estrategia, diseño e innovación digital para potenciar la presencia de tu marca.</p>
+      </div>
+    </section>
+
+    <!-- BARRA DE FILTROS INTERACTIVOS -->
+    <div class="portfolio-filters">
+      <button class="filter-btn active" data-filter="all" data-tr-es="TODOS" data-tr-en="ALL" data-tr-fr="TOUS">TODOS</button>
+      <button class="filter-btn" data-filter="web" data-tr-es="IDENTIDAD VISUAL" data-tr-en="VISUAL IDENTITY" data-tr-fr="IDENTITÉ VISUELLE">IDENTIDAD VISUAL</button>
+      <button class="filter-btn" data-filter="branding" data-tr-es="ANIMACIÓN" data-tr-en="ANIMATION" data-tr-fr="ANIMATION">ANIMACIÓN</button>
+      <button class="filter-btn" data-filter="redes" data-tr-es="PUBLICIDAD" data-tr-en="ADVERTISING" data-tr-fr="PUBLICITÉ">PUBLICIDAD</button>
+      <button class="filter-btn" data-filter="audiovisual" data-tr-es="AUDIOVISUAL" data-tr-en="AUDIOVISUAL" data-tr-fr="AUDIOVISUEL">AUDIOVISUAL</button>
+    </div>
+
+    <!-- SECCIÓN DE EVIDENCIAS DE TRABAJO REAL -->
+    <section class="portfolio-section">
+      <div class="portfolio-stats-banner">
+        <span class="stats-badge-main" data-tr-es="+120 Proyectos completados" data-tr-en="+120 Completed projects" data-tr-fr="+120 Projets réalisés">+120 Proyectos completados</span>
+      </div>
+      <h2 class="section-title" data-tr-es="EVIDENCIAS DE TRABAJO REAL" data-tr-en="REAL WORK EVIDENCE" data-tr-fr="PREUVES DE TRAVAIL RÉEL">EVIDENCIAS DE TRABAJO REAL</h2>
+      <p class="portfolio-subtitle" data-tr-es="Descubre el impacto y los resultados tangibles que hemos logrado para nuestros clientes." data-tr-en="Discover the impact and tangible results we have achieved for our clients." data-tr-fr="Découvrez l'impact et les résultats tangibles que nous avons obtenus pour nos clients.">Descubre el impacto y los resultados tangibles que hemos logrado para nuestros clientes.</p>
+
+      <div class="portfolio-grid">
+        <!-- TARJETA 1 -->
+        <div class="portfolio-card" data-category="web">
+          <div class="card-impact-badge" data-tr-es="Impacto +180%" data-tr-en="Impact +180%" data-tr-fr="Impact +180%">Impacto +180%</div>
+          <h4 data-tr-es="IDENTIDAD VISUAL" data-tr-en="VISUAL IDENTITY" data-tr-fr="IDENTITÉ VISUELLE">IDENTIDAD VISUAL</h4>
+          <div class="card-img-wrapper">
+            <img src="imagenes portafolio/identidad visual.jpg" alt="Desarrollo Web" class="foto-hover">
+          </div>
+          <div class="card-execution-info">
+            <h5 data-tr-es="Lo que se realizó:" data-tr-en="What was done:" data-tr-fr="Ce qui a été fait :">Lo que se realizó:</h5>
+            <ul>
+              <li data-tr-es="Rediseño y desarrollo web (Escritorio y Móvil)." data-tr-en="Redesign and web development (Desktop and Mobile)." data-tr-fr="Refonte et développement web (Bureau et Mobile).">Rediseño y desarrollo web (Escritorio y Móvil).</li>
+              <li data-tr-es="Paquete de piezas publicitarias (Banners)." data-tr-en="Advertising pieces package (Banners)." data-tr-fr="Paquet de pièces publicitaires (Bannières).">Paquete de piezas publicitarias (Banners).</li>
+              <li data-tr-es="Integración de pasarela de pagos." data-tr-en="Payment gateway integration." data-tr-fr="Intégration d'une passerelle de paiement.">Integración de pasarela de pagos.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- TARJETA 2 -->
+        <div class="portfolio-card" data-category="branding">
+          <div class="card-impact-badge" data-tr-es="Impacto +75%" data-tr-en="Impact +75%" data-tr-fr="Impact +75%">Impacto +75%</div>
+          <h4 data-tr-es="ANIMACIÓN" data-tr-en="ANIMATION" data-tr-fr="ANIMATION">ANIMACIÓN</h4>
+          <div class="card-img-wrapper">
+            <video autoplay loop muted playsinline class="foto-hover">
+              <source src="imagenes portafolio/ANIMACIÓN LOGO.mp4" type="video/mp4">
+              Tu navegador no soporta videos.
+            </video>
+          </div>
+          <div class="card-execution-info">
+            <h5 data-tr-es="Lo que se realizó:" data-tr-en="What was done:" data-tr-fr="Ce qui a été fait :">Lo que se realizó:</h5>
+            <ul>
+              <li data-tr-es="Desarrollo de nueva identidad visual (Isologo)." data-tr-en="Development of new visual identity (Isologo)." data-tr-fr="Développement d'une nouvelle identité visuelle (Isologo).">Desarrollo de nueva identidad visual (Isologo).</li>
+              <li data-tr-es="Piezas gráficas para papelería y tarjetas." data-tr-en="Graphic pieces for stationery and cards." data-tr-fr="Pièces graphiques pour papeterie et cartes.">Piezas gráficas para papelería y tarjetas.</li>
+              <li data-tr-es="Diseño de manual de marca corporativo." data-tr-en="Corporate brand manual design." data-tr-fr="Conception du manuel de marque d'entreprise.">Diseño de manual de marca corporativo.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- TARJETA 3 -->
+        <div class="portfolio-card" data-category="redes">
+          <div class="card-impact-badge" data-tr-es="Impacto +90%" data-tr-en="Impact +90%" data-tr-fr="Impact +90%">Impacto +90%</div>
+          <h4 data-tr-es="PUBLICIDAD" data-tr-en="ADVERTISING" data-tr-fr="PUBLICITÉ">PUBLICIDAD</h4>
+          <div class="card-img-wrapper card-img-vertical">
+            <img src="imagenes portafolio/publicidad.jpg" alt="Diseño para redes" class="foto-vertical">
+          </div>
+          <div class="card-execution-info">
+            <h5 data-tr-es="Lo que se realizó:" data-tr-en="What was done:" data-tr-fr="Ce qui a été fait :">Lo que se realizó:</h5>
+            <ul>
+              <li data-tr-es="Gestión y creación de contenido mensual." data-tr-en="Monthly content management and creation." data-tr-fr="Gestion et création de contenu mensuel.">Gestión y creación de contenido mensual.</li>
+              <li data-tr-es="Producción de piezas en video corto y reels." data-tr-en="Production of short video pieces and reels." data-tr-fr="Production de pièces vidéo courtes et de reels.">Producción de piezas en video corto y reels.</li>
+              <li data-tr-es="Plantillas personalizadas para Stories." data-tr-en="Custom templates for Stories." data-tr-fr="Modèles personnalisés pour Stories.">Plantillas personalizadas para Stories.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- TARJETA 4 -->
+        <div class="portfolio-card" data-category="redes">
+          <div class="card-impact-badge" data-tr-es="Impacto +220%" data-tr-en="Impact +220%" data-tr-fr="Impact +220%">Impacto +220%</div>
+          <h4 data-tr-es="TARJETA DE PRESENTACIÓN" data-tr-en="BUSINESS CARD" data-tr-fr="CARTE DE VISITE">TARJETA DE PRESENTACIÓN</h4>
+          <div class="card-img-wrapper">
+            <img src="imagenes portafolio/tarjeta de presentacion.png" alt="Marketing Digital" class="foto-hover">
+          </div>
+          <div class="card-execution-info">
+            <h5 data-tr-es="Lo que se realizó:" data-tr-en="What was done:" data-tr-fr="Ce qui a été fait :">Lo que se realizó:</h5>
+            <ul>
+              <li data-tr-es="Planificación y ejecución de pauta en Ads." data-tr-en="Planning and execution of Ads campaigns." data-tr-fr="Planification et exécution de campagnes publicitaires.">Planificación y ejecución de pauta en Ads.</li>
+              <li data-tr-es="Diseño de piezas publicitarias de alto impacto." data-tr-en="High-impact advertising design." data-tr-fr="Conception publicitaire à fort impact.">Diseño de piezas publicitarias de alto impacto.</li>
+              <li data-tr-es="Estrategia de conversión y retargeting." data-tr-en="Conversion and retargeting strategy." data-tr-fr="Stratégie de conversion et de reciblage.">Estrategia de conversión y retargeting.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE PROYECTOS AUDIOVISUALES -->
+    <section class="video-projects-section" id="audiovisual-section">
+      <div class="video-container">
+        <h2 class="section-title" data-tr-es="PROYECTOS AUDIOVISUALES" data-tr-en="AUDIOVISUAL PROJECTS" data-tr-fr="PROJETS AUDIOVISUELS">PROYECTOS AUDIOVISUALES</h2>
+       
+        <div class="videos-grid">
+          <!-- VIDEO 1 -->
+          <article class="video-card">
+            <div class="video-frame">
+              <video controls poster="imagenes portafolio/ima 3.JPG">
+                <source src="imagenes portafolio/matematicas.mp4" type="video/mp4">
+                Tu navegador no admite la reproducción de video.
+              </video>
+            </div>
+            <div class="video-details">
+              <h3 data-tr-es="DÍA DE LAS MATEMÁTICAS" data-tr-en="MATHEMATICS DAY" data-tr-fr="JOURNÉE DES MATHÉMATIQUES">DÍA DE LAS MATEMÁTICAS</h3>
+              <p data-tr-es="Actividad dedicada a celebrar las matemáticas mediante juegos y retos, demostrando que pueden ser divertidas y están presentes en nuestra vida diaria. El Día Internacional de las Matemáticas se celebra el 14 de marzo." data-tr-en="Activity dedicated to celebrating mathematics through games and challenges, showing that they can be fun and are present in our daily lives. International Mathematics Day is celebrated on March 14." data-tr-fr="Activité dédiée à la célébration des mathématiques à travers des jeux et des défis, montrant qu'elles peuvent être ludiques et présentes dans notre vie quotidienne. La Journée internationale des mathématiques est célébrée le 14 mars.">Actividad dedicada a celebrar las matemáticas mediante juegos y retos, demostrando que pueden ser divertidas y están presentes en nuestra vida diaria. El Día Internacional de las Matemáticas se celebra el 14 de marzo.</p>
+            </div>
+          </article>
+
+          <!-- VIDEO 2 -->
+          <article class="video-card">
+            <div class="video-frame">
+              <video controls poster="imagenes portafolio/ima 4.jpg">
+                <source src="imagenes portafolio/Video_Profe_Primaria.mp4" type="video/mp4">
+                Tu navegador no admite la reproducción de video.
+              </video>
+            </div>
+            <div class="video-details">
+              <h3 data-tr-es="LAS ESPECIALIDADES" data-tr-en="THE SPECIALTIES" data-tr-fr="LES SPÉCIALITÉS">LAS ESPECIALIDADES</h3>
+              <p data-tr-es="Estudiantes de primaria imaginan qué quieren ser cuando crezcan, mientras se muestran los diferentes técnicos que ofrece el SENA en el colegio y las oportunidades que brindan para su futuro." data-tr-en="Primary students imagine what they want to be when they grow up, while showcasing the different technicians offered by the school and the opportunities they provide for their future." data-tr-fr="Des élèves du primaire imaginent ce qu'ils veulent être quand ils seront grands, tout en présentant les différentes filières techniques proposées par l'école et les opportunités qu'elles offrent pour leur avenir.">Estudiantes de primaria imaginan qué quieren ser cuando crezcan, mientras se muestran los diferentes técnicos que ofrece el SENA en el colegio y las oportunidades que brindan para su futuro.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LLAMADO A LA ACCIÓN (CTA) FINAL -->
+    <section class="cta-banner-section">
+      <div class="cta-banner-box">
+        <h3 data-tr-es="¿TIENES UN PROYECTO EN MENTE?" data-tr-en="DO YOU HAVE A PROJECT IN MIND?" data-tr-fr="AVEZ-VOUS UN PROJET EN TÊTE ?">¿TIENES UN PROYECTO EN MENTE?</h3>
+        <p data-tr-es="Llevemos tu marca al siguiente nivel con soluciones multimedia profesionales." data-tr-en="Let's take your brand to the next level with professional multimedia solutions." data-tr-fr="Amenons votre marque au niveau supérieur avec des solutions multimédias professionnelles.">Llevemos tu marca al siguiente nivel con soluciones multimedia profesionales.</p>
+        <a href="../4.contacto/contacto.html" class="btn-cta-gold" data-tr-es="CONTÁCTANOS AHORA" data-tr-en="CONTACT US NOW" data-tr-fr="CONTACTEZ-NOUS MAINTENANT">CONTÁCTANOS AHORA</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER GLOBAL -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-info">
+        <i class="fa-solid fa-phone"></i>
+        <span>+57 3126668958</span>
+      </div>
+      <div class="footer-info">
+        <i class="fa-solid fa-envelope"></i>
+        <span>helloARTNOVUS@gmail.com</span>
+      </div>
+      <div class="footer-info">
+        <i class="fa-solid fa-location-dot"></i>
+        <span data-tr-es="Cali, Colombia" data-tr-en="Cali, Colombia" data-tr-fr="Cali, Colombie">Cali, Colombia</span>
+      </div>
+    </div>
+    <div class="footer-copy" data-tr-es="&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO ." data-tr-en="&copy; 2026 ARTNOVUS. All rights reserved BY MELANIE QUINTERO ." data-tr-fr="&copy; 2026 ARTNOVUS. Tous droits réservés PAR MELANIE QUINTERO .">
+      &copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO .
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a href="https://wa.me/573126668958?text=Hola,%20quisiera%20más%20información%20sobre%20el%20portafolio" class="btn-wapp-flotante" target="_blank" rel="noopener noreferrer" title="Chat de WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- SCRIPT DE TRADUCCIÓN INTERNO -->
+  <script>
+    const languages = ['es', 'en', 'fr'];
+    let langIndex = 0;
+
+    function cycleLanguage() {
+      langIndex = (langIndex + 1) % languages.length;
+      const targetLang = languages[langIndex];
+      
+      const label = document.getElementById('lang-label');
+      if (label) label.textContent = targetLang.toUpperCase();
+
+      const elements = document.querySelectorAll('[data-tr-es]');
+      elements.forEach(el => {
+        let text = el.getAttribute('data-tr-' + targetLang);
+        if (text) {
+          el.innerHTML = text;
+        }
+      });
+    }
+  </script>
+
+  <!-- SCRIPT PARA FILTRADO DINÁMICO -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const portfolioCards = document.querySelectorAll('.portfolio-card');
+      const videoSection = document.getElementById('audiovisual-section');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+
+          const filterValue = this.getAttribute('data-filter');
+
+          portfolioCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            if (filterValue === 'all' || cardCategory === filterValue) {
+              card.classList.remove('hide');
+            } else {
+              card.classList.add('hide');
+            }
+          });
+
+          if (filterValue === 'all' || filterValue === 'audiovisual') {
+            videoSection.classList.remove('hide');
+          } else {
+            videoSection.classList.add('hide');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

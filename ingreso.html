@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARTNOVUS | Iniciar Sesión</title>
+  
+  <!-- Fuentes e íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600;700&display=swap">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="1.inicio/ImagenesInicio/logo.png">
+
+  <!-- Estilos globales heredados -->
+  <link rel="stylesheet" href="1.inicio/styles.css">
+
+  <style>
+    /* Estilos específicos para la sección y tarjeta de ingreso */
+    .login-page-section {
+      min-height: calc(100vh - 75px - 160px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
+                  url('1.inicio/ImagenesInicio/imag.inicio.jpg') center/cover no-repeat;
+    }
+
+    .login-card {
+      background: #111822;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 440px;
+      padding: 40px 30px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    }
+
+    .login-card-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .login-card-logo {
+      height: 55px;
+      margin-bottom: 15px;
+    }
+
+    .login-card-header h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold, #d4af37);
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .login-card-header p {
+      color: #a0aec0;
+      font-size: 0.85rem;
+    }
+
+    .login-form .input-group {
+      margin-bottom: 20px;
+    }
+
+    .login-form label {
+      display: block;
+      color: #e2e8f0;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .login-form .input-wrapper input {
+      width: 100%;
+      padding: 12px 40px;
+      background-color: #1a2332;
+      border: 1px solid #2d3748;
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .login-form .input-wrapper input:focus {
+      border-color: var(--gold, #d4af37);
+    }
+
+    /* Estilos del Captcha Matemático */
+    .captcha-box {
+      background-color: #1a2332;
+      border: 1px dashed rgba(212, 175, 55, 0.4);
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    .captcha-label-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .captcha-question {
+      color: #d4af37;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .reload-captcha {
+      background: none;
+      border: none;
+      color: #a0aec0;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .reload-captcha:hover {
+      color: #d4af37;
+    }
+
+    .forgot-link-container {
+      text-align: right;
+      margin-bottom: 22px;
+    }
+
+    .forgot-link-container a {
+      color: #729bc4;
+      font-size: 0.8rem;
+      transition: color 0.2s ease;
+    }
+
+    .forgot-link-container a:hover {
+      color: #d4af37;
+      text-decoration: underline;
+    }
+
+    .form-buttons-group {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-submit-login, .btn-return {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .btn-submit-login {
+      background: linear-gradient(135deg, #d4af37, #aa8c2c);
+      color: #000000;
+      border: none;
+    }
+
+    .btn-submit-login:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    }
+
+    .btn-return {
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-return:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: #ffffff;
+    }
+
+    /* Modal de Error Personalizado */
+    .error-modal-container {
+      text-align: center;
+    }
+
+    .error-modal-icon {
+      font-size: 3rem;
+      color: #e53e3e;
+      margin-bottom: 15px;
+    }
+
+    .error-modal-title {
+      font-family: 'Cinzel', serif;
+      color: #ffffff;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .error-modal-text {
+      color: #a0aec0;
+      font-size: 0.85rem;
+      margin-bottom: 25px;
+      line-height: 1.4;
+    }
+
+    .error-modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .modal-action-btn {
+      padding: 11px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-retry {
+      background-color: #d4af37;
+      color: #000000;
+      border: none;
+    }
+
+    .btn-retry:hover {
+      background-color: #f3d06c;
+    }
+
+    .btn-cancel {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-cancel:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .btn-help {
+      background: transparent;
+      color: #729bc4;
+      border: 1px solid #729bc4;
+    }
+
+    .btn-help:hover {
+      background: rgba(114, 155, 196, 0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER GLOBAL -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="brand-container">
+        <a href="1.inicio/inicio.html" class="logo-link">
+          <img src="1.inicio/ImagenesInicio/logo.png" alt="Logo ARTNOVUS" class="brand-logo">
+        </a>
+        <div class="brand-text">
+          <span class="brand-name">ARTNOVUS</span>
+          <span class="brand-tagline">Agencia Multimedia</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="1.inicio/inicio.html" class="nav-link">INICIO</a></li>
+          <li><a href="3.nosotros/nosotros.html" class="nav-link">NOSOTROS</a></li>
+          <li><a href="5.portafolio/portafolio.html" class="nav-link">PORTAFOLIO</a></li>
+          <li><a href="2.servicios/servicios.html" class="nav-link">SERVICIOS</a></li>
+          <li><a href="4.contacto/contacto.html" class="nav-link">CONTÁCTANOS</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="ingreso.html" class="action-btn">
+          <i class="fa-solid fa-user-gear"></i>
+          <span>INICIAR SESIÓN</span>
+        </a>
+        <a href="https://wa.me/573126668958" target="_blank" rel="noopener noreferrer" class="action-btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>HABLEMOS</span>
+        </a>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- SECCIÓN DE INGRESO -->
+  <main class="login-page-section">
+    <div class="login-card">
+      <div class="login-card-header">
+        <img src="1.inicio/ImagenesInicio/logo.png" alt="Logo ARTNOVUS" class="login-card-logo">
+        <h2>INICIAR SESIÓN</h2>
+        <p>Por favor, ingresa tu correo y contraseña para acceder.</p>
+      </div>
+
+      <form class="login-form" id="page-login-form">
+        <!-- Correo Electrónico -->
+        <div class="input-group">
+          <label for="page-email">Correo Electrónico</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="page-email" placeholder="ejemplo@artnovus.com" required>
+          </div>
+        </div>
+
+        <!-- Contraseña -->
+        <div class="input-group">
+          <label for="page-password">Contraseña</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="page-password" placeholder="••••••••" required>
+            <i class="fa-solid fa-eye toggle-password" id="page-toggle-password"></i>
+          </div>
+        </div>
+
+        <!-- Captcha Matemático Aleatorio -->
+        <div class="captcha-box">
+          <div class="captcha-label-container">
+            <label for="captcha-answer" style="margin-bottom: 0;">Desafío de Seguridad</label>
+            <button type="button" class="reload-captcha" id="reload-captcha-btn" title="Generar nuevo desafío">
+              <i class="fa-solid fa-rotate-right"></i>
+            </button>
+          </div>
+          <div class="input-group" style="margin-bottom: 0;">
+            <p class="captcha-question" id="captcha-question-text">¿Cuánto es 0 + 0?</p>
+            <div class="input-wrapper" style="margin-top: 8px;">
+              <i class="fa-solid fa-calculator"></i>
+              <input type="number" id="captcha-answer" placeholder="Resultado" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enlace Olvidaste tu Contraseña -->
+        <div class="forgot-link-container">
+          <a href="4.contacto/contacto.html">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="form-buttons-group">
+          <a href="1.inicio/inicio.html" class="btn-return">REGRESAR</a>
+          <button type="submit" class="btn-submit-login">INGRESAR</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- MODAL DE ERROR PERSONALIZADO -->
+  <div class="login-modal-overlay" id="error-modal">
+    <div class="login-modal-container error-modal-container">
+      <div class="error-modal-icon">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <h3 class="error-modal-title">ERROR DE AUTENTICACIÓN</h3>
+      <p class="error-modal-text" id="error-modal-msg">Las credenciales ingresadas o la respuesta del captcha son incorrectas.</p>
+      
+      <div class="error-modal-actions">
+        <button type="button" class="modal-action-btn btn-retry" id="btn-modal-retry">INTENTAR NUEVAMENTE</button>
+        <button type="button" class="modal-action-btn btn-cancel" id="btn-modal-cancel">CANCELAR</button>
+        <button type="button" class="modal-action-btn btn-help" id="btn-modal-help">AYUDA</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER GLOBAL -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-info">
+        <i class="fa-solid fa-phone"></i>
+        <span>+57 3126668958</span>
+      </div>
+      <div class="footer-info">
+        <i class="fa-solid fa-envelope"></i>
+        <span>helloARTNOVUS@gmail.com</span>
+      </div>
+      <div class="footer-info">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>Cali, Colombia</span>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <p>&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO.</p>
+    </div>
+  </footer>
+
+  <!-- Lógica JavaScript -->
+  <script src="script-login.js"></script>
+</body>
+</html>

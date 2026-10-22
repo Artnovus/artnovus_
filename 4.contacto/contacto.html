@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARTNOVUS | Contáctanos</title>
+  
+  <!-- Tipografías e Iconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Hoja de Estilos CSS Externa -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="ImagenesContacto/logo.png">
+
+  <style>
+    /* =========================================================
+       BOTÓN DE IDIOMA (UBICADO DESPUÉS DE HABLEMOS)
+       ========================================================= */
+    .btn-lang-toggle {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #d4af37;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-lang-toggle:hover {
+      background: #d4af37;
+      color: #000000;
+      border-color: #d4af37;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    }
+
+    /* =========================================================
+       CORRECCIÓN DEFINITIVA DE STICKY NAVBAR & FONDO BASE
+       ========================================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Anula los overflows conflictivos de styles.css que rompían position: sticky */
+    html, body {
+      background-color: #080808 !important;
+      color: #ffffff !important;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: clip !important;
+      overflow-y: visible !important;
+      position: relative !important;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header prioritario que jamás se pierde al deslizar la página */
+    .main-header {
+      background-color: #0a0a0a !important;
+      padding: 14px 40px !important;
+      position: -webkit-sticky !important;
+      position: sticky !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      z-index: 99999 !important;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25) !important;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    .header-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      height: 42px;
+      width: auto;
+    }
+
+    .brand-name {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #d4af37;
+      letter-spacing: 1px;
+      display: block;
+      line-height: 1;
+    }
+
+    .brand-tagline {
+      font-size: 0.65rem;
+      color: #a0a0a0;
+      display: block;
+      margin-top: 3px;
+      font-weight: 400;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #ffffff; 
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #d4af37;
+      background-color: rgba(212, 175, 55, 0.1);
+    }
+
+    .nav-link.active {
+      color: #000000 !important; 
+      background: linear-gradient(135deg, #d4af37, #aa8c2c) !important; 
+      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4) !important;
+      font-weight: 700 !important;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .action-btn:hover {
+      background-color: #d4af37;
+      color: #000000;
+      border-color: #d4af37;
+    }
+
+    .btn-whatsapp {
+      background-color: #25D366;
+      border-color: #25D366;
+      color: #ffffff;
+    }
+
+    .btn-whatsapp i {
+      color: #ffffff;
+      font-size: 1.1rem;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #128C7E;
+      border-color: #128C7E;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       SECCIÓN CONTACTO MEJORADA
+       ========================================================= */
+    .contact-section {
+      padding: 60px 20px 80px 20px;
+      width: 100%;
+      background: radial-gradient(ellipse at center 35%, rgba(184, 146, 65, 0.16) 0%, rgba(8, 8, 8, 1) 70%) !important;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .contact-title {
+      font-family: 'Cinzel', serif;
+      color: #d4af37;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+    }
+
+    .contact-subtitle {
+      color: #cccccc;
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .contact-container-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* Columna Izquierda: Tarjetas de Información */
+    .info-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .info-card {
+      background: rgba(17, 17, 17, 0.85);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 16px;
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+
+    .info-card:hover {
+      border-color: #d4af37;
+      transform: translateX(8px);
+      background: rgba(212, 175, 55, 0.08);
+    }
+
+    .info-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid #d4af37;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: #d4af37;
+      flex-shrink: 0;
+    }
+
+    .info-details h4 {
+      font-family: 'Cinzel', serif;
+      color: #d4af37;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      letter-spacing: 1px;
+    }
+
+    .info-details p, .info-details a {
+      color: #dddddd;
+      font-size: 0.85rem;
+      font-weight: 400;
+    }
+
+    .info-details a:hover {
+      color: #d4af37;
+    }
+
+    .social-links-box {
+      background: rgba(17, 17, 17, 0.85);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+
+    .social-links-box h4 {
+      font-family: 'Cinzel', serif;
+      color: #d4af37;
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    .social-icons-row {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      background: rgba(255, 255, 255, 0.03);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-btn:hover {
+      background: #d4af37;
+      color: #000;
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Columna Derecha: Formulario de Contacto Moderno */
+    .form-column {
+      background: rgba(17, 17, 17, 0.9);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+    }
+
+    .form-title {
+      font-family: 'Cinzel', serif;
+      color: #d4af37;
+      font-size: 1.4rem;
+      margin-bottom: 25px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #d4af37;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .form-group input, 
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    /* Estilo oscuro para las opciones del selector de servicios */
+    .form-group select option {
+      background-color: #111111 !important;
+      color: #ffffff !important;
+    }
+
+    .form-group input:focus, 
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: #d4af37;
+      background: rgba(212, 175, 55, 0.06);
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #d4af37, #aa8c2c);
+      color: #000000;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+    }
+
+    /* Mensaje de Estado */
+    .form-status-msg {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: none;
+    }
+
+    .form-status-msg.success {
+      display: block;
+      background: rgba(37, 211, 102, 0.15);
+      border: 1px solid #25D366;
+      color: #25D366;
+    }
+
+    .form-status-msg.error {
+      display: block;
+      background: rgba(255, 77, 77, 0.15);
+      border: 1px solid #ff4d4d;
+      color: #ff4d4d;
+    }
+
+    /* MAPA RECTANGULAR AMPLIO Y A COLOR */
+    .map-section {
+      max-width: 1200px;
+      width: 100%;
+      margin: 60px auto 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    .map-section iframe {
+      width: 100% !important;
+      height: 450px !important;
+      border: none;
+      filter: none !important;
+    }
+
+    /* =========================================================
+       FOOTER UNIFICADO
+       ========================================================= */
+    .main-footer {
+      background-color: #c59b27 !important;
+      color: #000000 !important;
+      padding: 30px 20px 20px 20px !important;
+      margin-top: 60px !important;
+      width: 100% !important;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto 20px auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .footer-info i {
+      font-size: 1.2rem;
+    }
+
+    .footer-copy {
+      text-align: center;
+      border-top: 1px solid rgba(0, 0, 0, 0.15);
+      padding-top: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Botón Flotante WhatsApp */
+    .btn-wapp-flotante {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 55px;
+      height: 55px;
+      background-color: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-wapp-flotante:hover {
+      transform: scale(1.1);
+    }
+
+    /* Responsivo */
+    @media (max-width: 992px) {
+      .contact-container-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER UNIFICADO (HIJO DIRECTO DEL BODY) -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="brand-container">
+        <a href="../1.inicio/inicio.html" class="logo-link">
+          <img src="ImagenesContacto/logo.png" alt="Logo ARTNOVUS" class="brand-logo">
+        </a>
+        <div class="brand-text">
+          <span class="brand-name">ARTNOVUS</span>
+          <span class="brand-tagline" data-tr-es="Agencia Multimedia" data-tr-en="Multimedia Agency" data-tr-fr="Agence Multimédia">Agencia Multimedia</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="../1.inicio/index.html" class="nav-link" data-tr-es="INICIO" data-tr-en="HOME" data-tr-fr="ACCUEIL">INICIO</a></li>
+          <li><a href="../3.nosotros/nosotros.html" class="nav-link" data-tr-es="NOSOTROS" data-tr-en="ABOUT" data-tr-fr="À PROPOS">NOSOTROS</a></li>
+          <li><a href="../5.portafolio/portafolio.html" class="nav-link" data-tr-es="PORTAFOLIO" data-tr-en="PORTFOLIO" data-tr-fr="PORTFOLIO">PORTAFOLIO</a></li>
+          <li><a href="../2.servicios/servicios.html" class="nav-link" data-tr-es="SERVICIOS" data-tr-en="SERVICES" data-tr-fr="SERVICES">SERVICIOS</a></li>
+          <li><a href="../4.contacto/contacto.html" class="nav-link active" data-tr-es="CONTÁCTANOS" data-tr-en="CONTACT US" data-tr-fr="CONTACT">CONTÁCTANOS</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="../ingreso.html" class="action-btn">
+          <i class="fa-solid fa-user-gear"></i>
+          <span data-tr-es="INICIAR SESIÓN" data-tr-en="LOG IN" data-tr-fr="CONNEXION">INICIAR SESIÓN</span>
+        </a>
+        <a href="https://wa.me/573126668958" target="_blank" rel="noopener noreferrer" class="action-btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span data-tr-es="HABLEMOS" data-tr-en="LET'S TALK" data-tr-fr="PARLONS">HABLEMOS</span>
+        </a>
+
+        <!-- BOTÓN DE CAMBIO DE IDIOMA -->
+        <button class="btn-lang-toggle" onclick="cycleLanguage()">
+          <i class="fa-solid fa-globe"></i> <span id="lang-label">ES</span>
+        </button>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- SECCIÓN PRINCIPAL DE CONTACTO -->
+  <main>
+    <section class="contact-section">
+      
+      <div class="contact-header">
+        <h1 class="contact-title" data-tr-es="CONTÁCTANOS" data-tr-en="CONTACT US" data-tr-fr="CONTACTEZ-NOUS">CONTÁCTANOS</h1>
+        <p class="contact-subtitle" data-tr-es="Estamos listos para escuchar tu idea y transformarla en una experiencia visual impactante. Cuéntanos qué necesitas y te asesoramos de inmediato." data-tr-en="We are ready to listen to your idea and transform it into an impactful visual experience. Tell us what you need and we will guide you immediately." data-tr-fr="Nous sommes prêts à écouter votre idée et à la transformer en une expérience visuelle percutante. Dites-nous ce dont vous avez besoin et nous vous conseillerons immédiatement.">
+          Estamos listos para escuchar tu idea y transformarla en una experiencia visual impactante. Cuéntanos qué necesitas y te asesoramos de inmediato.
+        </p>
+      </div>
+
+      <div class="contact-container-grid">
+        
+        <!-- COLUMNA IZQUIERDA: INFORMACIÓN Y REDES -->
+        <div class="info-column">
+          
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div class="info-details">
+              <h4 data-tr-es="WHATSAPP DIRECTO" data-tr-en="DIRECT WHATSAPP" data-tr-fr="WHATSAPP DIRECT">WHATSAPP DIRECTO</h4>
+              <p><a href="https://wa.me/573126668958" target="_blank">+57 312 666 8958</a></p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="info-details">
+              <h4 data-tr-es="CORREO ELECTRÓNICO" data-tr-en="EMAIL ADDRESS" data-tr-fr="ADRESSE EMAIL">CORREO ELECTRÓNICO</h4>
+              <p><a href="mailto:helloARTNOVUS@gmail.com">helloARTNOVUS@gmail.com</a></p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="info-details">
+              <h4 data-tr-es="UBICACIÓN PRINCIPAL" data-tr-en="MAIN LOCATION" data-tr-fr="LOCALISATION PRINCIPALE">UBICACIÓN PRINCIPAL</h4>
+              <p data-tr-es="Cra 52 #2-51, Cali, Colombia" data-tr-en="Cra 52 #2-51, Cali, Colombia" data-tr-fr="Cra 52 #2-51, Cali, Colombie">Cra 52 #2-51, Cali, Colombia</p>
+            </div>
+          </div>
+
+          <div class="social-links-box">
+            <h4 data-tr-es="SÍGUENOS EN REDES" data-tr-en="FOLLOW US ON SOCIALS" data-tr-fr="SUIVEZ-NOUS">SÍGUENOS EN REDES</h4>
+            <div class="social-icons-row">
+              <a href="https://wa.me/573126668958" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="https://www.instagram.com/artnovus_/?hl=es-la" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="mailto:helloARTNOVUS@gmail.com?subject=Consulta%20de%20Informaci%C3%B3n%20-%20ARTNOVUS&body=Hola%20equipo%20de%20ARTNOVUS,%0A%0AMe%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." class="social-btn" aria-label="Correo"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- COLUMNA DERECHA: FORMULARIO MODERNO CONECTADO A FORMSPREE -->
+        <div class="form-column">
+          <h3 class="form-title" data-tr-es="ENVÍANOS UN MENSAJE" data-tr-en="SEND US A MESSAGE" data-tr-fr="ENVOYEZ-NOUS UN MESSAGE">ENVÍANOS UN MENSAJE</h3>
+          
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/mdeenbdd" method="POST">
+            <div class="form-group">
+              <label for="nombre" data-tr-es="Nombre Completo" data-tr-en="Full Name" data-tr-fr="Nom Complet">Nombre Completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email" data-tr-es="Correo Electrónico" data-tr-en="Email Address" data-tr-fr="Adresse Email">Correo Electrónico</label>
+              <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="servicio" data-tr-es="Servicio de Interés" data-tr-en="Service of Interest" data-tr-fr="Service d'Intérêt">Servicio de Interés</label>
+              <select id="servicio" name="servicio">
+                <option value="branding" data-tr-es="Branding e Identidad Visual" data-tr-en="Branding & Visual Identity" data-tr-fr="Branding et Identité Visuelle">Branding e Identidad Visual</option>
+                <option value="web" data-tr-es="Desarrollo Web" data-tr-en="Web Development" data-tr-fr="Développement Web">Desarrollo Web</option>
+                <option value="redes" data-tr-es="Diseño para Redes / Reels" data-tr-en="Social Media Design / Reels" data-tr-fr="Design Réseaux Sociaux / Reels">Diseño para Redes / Reels</option>
+                <option value="marketing" data-tr-es="Marketing Digital" data-tr-en="Digital Marketing" data-tr-fr="Marketing Numérique">Marketing Digital</option>
+                <option value="otro" data-tr-es="Otro Proyecto Personalizado" data-tr-en="Other Custom Project" data-tr-fr="Autre Projet Personnalisé">Otro Proyecto Personalizado</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje" data-tr-es="Mensaje o Detalles del Proyecto" data-tr-en="Message or Project Details" data-tr-fr="Message ou Détails du Projet">Mensaje o Detalles del Proyecto</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Describe brevemente tu idea o consulta..." required></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn" class="submit-btn" data-tr-es="ENVIAR MENSAJE" data-tr-en="SEND MESSAGE" data-tr-fr="ENVOYER LE MESSAGE">ENVIAR MENSAJE</button>
+            <div id="form-status" class="form-status-msg"></div>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- MAPA RECTANGULAR FIJO EN LA DIRECCIÓN ESPECÍFICA -->
+      <div class="map-section">
+        <iframe src="https://maps.google.com/maps?q=Cra+52+%232-51,+Cali,+Valle+del+Cauca&t=&z=17&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- FOOTER UNIFICADO -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-info">
+        <i class="fa-solid fa-phone"></i>
+        <span>+57 3126668958</span>
+      </div>
+      <div class="footer-info">
+        <i class="fa-solid fa-envelope"></i>
+        <span>helloARTNOVUS@gmail.com</span>
+      </div>
+      <div class="footer-info">
+        <i class="fa-solid fa-location-dot"></i>
+        <span data-tr-es="Cra 52 #2-51, Cali" data-tr-en="Cra 52 #2-51, Cali" data-tr-fr="Cra 52 #2-51, Cali">Cra 52 #2-51, Cali</span>
+      </div>
+    </div>
+
+    <div class="footer-copy">
+      <p data-tr-es="&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO ." data-tr-en="&copy; 2026 ARTNOVUS. All rights reserved BY MELANIE QUINTERO ." data-tr-fr="&copy; 2026 ARTNOVUS. Tous droits réservés PAR MELANIE QUINTERO .">&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO .</p>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a href="https://wa.me/573126668958" target="_blank" class="btn-wapp-flotante" aria-label="Chat WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- SCRIPT DE TRADUCCIÓN INTERNO -->
+  <script>
+    const languages = ['es', 'en', 'fr'];
+    let langIndex = 0;
+
+    function cycleLanguage() {
+      langIndex = (langIndex + 1) % languages.length;
+      const targetLang = languages[langIndex];
+      
+      const label = document.getElementById('lang-label');
+      if (label) label.textContent = targetLang.toUpperCase();
+
+      const elements = document.querySelectorAll('[data-tr-es]');
+      elements.forEach(el => {
+        let text = el.getAttribute('data-tr-' + targetLang);
+        if (text) {
+          el.innerHTML = text;
+        }
+      });
+    }
+  </script>
+
+  <!-- SCRIPT AJAX PARA ENVÍO DE FORMULARIO SIN RECARGAR LA PÁGINA -->
+  <script>
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+    const submitBtn = document.getElementById("submit-btn");
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerText = "ENVIANDO...";
+
+      const data = new FormData(event.target);
+      
+      try {
+        const response = await fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          status.className = "form-status-msg success";
+          status.innerText = "¡Gracias! Tu mensaje ha sido enviado exitosamente.";
+          form.reset();
+        } else {
+          const result = await response.json();
+          status.className = "form-status-msg error";
+          if (Object.hasOwn(result, 'errors')) {
+            status.innerText = result["errors"].map(error => error["message"]).join(", ");
+          } else {
+            status.innerText = "Ocurrió un error al enviar tu mensaje. Intenta nuevamente.";
+          }
+        }
+      } catch (error) {
+        status.className = "form-status-msg error";
+        status.innerText = "Error de conexión. Inténtalo de nuevo más tarde.";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "ENVIAR MENSAJE";
+      }
+    });
+  </script>
+
+  <!-- Script JS Externo -->
+  <script src="script.js"></script>
+</body>
+</html>
