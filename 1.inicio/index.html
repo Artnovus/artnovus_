@@ -5,19 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARTNOVUS | Agencia Multimedia</title>
   
-  <!-- Tipografías e Iconos -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Fuentes e iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600;700&display=swap">
 
-  <!-- Hoja de Estilos CSS Externa -->
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="ImagenesServcios/logo.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="ImagenesInicio/logo.png">
 
   <style>
+
+
     /* =========================================================
-       ESTILOS GENERALES Y RESET
+       BOTÓN DE IDIOMA (UBICADO DESPUÉS DE HABLEMOS)
+       ========================================================= */
+    .btn-lang-toggle {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #d4af37;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-lang-toggle:hover {
+      background: #d4af37;
+      color: #000000;
+      border-color: #d4af37;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    }
+
+    /* =========================================================
+       EFECTO HOVER PARA EL TÍTULO PRINCIPAL (NOSOTROS)
+       ========================================================= */
+    .nosotros-title-main {
+      display: inline-block;
+      transition: all 0.4s ease;
+      cursor: default;
+    }
+
+    .nosotros-title-main:hover {
+      transform: translateX(10px);
+      color: #f3d06c;
+      text-shadow: 0 0 25px rgba(212, 175, 55, 0.6), 0 4px 20px rgba(0, 0, 0, 0.9);
+    }
+
+    /* =========================================================
+       EFECTO HOVER PARA EL BOTÓN CORPORATIVO
+       ========================================================= */
+    .btn-manual-corporativo {
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-manual-corporativo:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+      background: linear-gradient(135deg, #e6c158, #c59b27);
+    }
+
+    /* =========================================================
+       REINICIO Y ESTILOS BASE
        ========================================================= */
     * {
       margin: 0;
@@ -25,14 +79,11 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      background-color: #080808 !important;
-      color: #ffffff !important;
+    body {
       font-family: 'Montserrat', sans-serif;
-      overflow-x: clip !important;
-      overflow-y: visible !important;
-      position: relative !important;
-      width: 100%;
+      background-color: #080808;
+      color: #ffffff;
+      overflow-x: hidden;
     }
 
     a {
@@ -40,18 +91,17 @@
       color: inherit;
     }
 
-    /* Header Sticky */
+    /* =========================================================
+       HEADER / BARRA DE NAVEGACIÓN (FONDO NEGRO ELEGANTE)
+       ========================================================= */
     .main-header {
-      background-color: #0a0a0a !important;
-      padding: 12px 20px !important;
-      position: -webkit-sticky !important;
-      position: sticky !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      z-index: 99999 !important;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.25) !important;
-      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6) !important;
+      background-color: #0a0a0a;
+      padding: 14px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
     }
 
     .header-container {
@@ -60,24 +110,23 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
     }
 
     .brand-container {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .brand-logo {
-      height: 38px;
+      height: 42px;
       width: auto;
     }
 
     .brand-name {
       font-family: 'Cinzel', serif;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       color: #d4af37;
       letter-spacing: 1px;
       display: block;
@@ -85,29 +134,27 @@
     }
 
     .brand-tagline {
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       color: #a0a0a0;
       display: block;
-      margin-top: 2px;
+      margin-top: 3px;
+      font-weight: 400;
     }
 
-    /* Menú de Escritorio */
     .nav-menu {
       display: flex;
       list-style: none;
-      gap: 15px;
+      gap: 20px;
       align-items: center;
-      margin: 0;
-      padding: 0;
     }
 
     .nav-link {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 600;
       color: #ffffff; 
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 20px;
       transition: all 0.3s ease;
     }
@@ -118,24 +165,25 @@
     }
 
     .nav-link.active {
-      color: #000000 !important; 
-      background: linear-gradient(135deg, #d4af37, #aa8c2c) !important; 
-      font-weight: 700 !important;
+      color: #000000; 
+      background: linear-gradient(135deg, #d4af37, #aa8c2c); 
+      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+      font-weight: 700;
     }
 
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .action-btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
+      gap: 8px;
+      font-size: 0.8rem;
       font-weight: 700;
-      padding: 6px 14px;
+      padding: 8px 18px;
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.3);
       background: rgba(255, 255, 255, 0.05);
@@ -156,273 +204,488 @@
       color: #ffffff;
     }
 
-    .btn-whatsapp:hover {
-      background-color: #128C7E;
+    .btn-whatsapp i {
+      color: #ffffff;
+      font-size: 1.1rem;
     }
 
-    .btn-lang-toggle {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      color: #d4af37;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 6px 12px;
-      border-radius: 20px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
+    .btn-whatsapp:hover {
+      background-color: #128C7E;
+      border-color: #128C7E;
+      color: #ffffff;
     }
 
     .menu-toggle {
       display: none;
       background: none;
       border: none;
-      font-size: 1.4rem;
-      color: #d4af37;
+      font-size: 1.5rem;
+      color: #ffffff;
       cursor: pointer;
-      padding: 4px;
-    }
-
-    /* Elementos exclusivos para móvil dentro del menú desplegable */
-    .mobile-only-action {
-      display: none;
     }
 
     /* =========================================================
-       SECCIÓN HERO / INICIO
+       HERO SECTION
        ========================================================= */
     .hero-section {
-      padding: 80px 20px 60px 20px;
-      text-align: center;
-      background: radial-gradient(ellipse at center 40%, rgba(184, 146, 65, 0.16) 0%, rgba(8, 8, 8, 1) 70%) !important;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 60px 80px;
+      position: relative;
     }
 
-    .hero-title {
+    .hero-container {
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      text-align: left;
+      max-width: 700px;
+    }
+
+    .hero-content h1 {
       font-family: 'Cinzel', serif;
-      font-size: 2.3rem;
+      font-size: 3.2rem;
       color: #d4af37;
-      margin-bottom: 15px;
-      letter-spacing: 1.5px;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+      cursor: default;
+      display: inline-block;
+      transition: all 0.4s ease;
     }
 
-    .hero-subtitle {
-      max-width: 750px;
-      margin: 0 auto 30px auto;
-      color: #cccccc;
-      font-size: 0.95rem;
+    .hero-content h1:hover {
+      transform: translateX(10px);
+      color: #f3d06c;
+      text-shadow: 0 0 25px rgba(212, 175, 55, 0.6), 0 4px 20px rgba(0, 0, 0, 0.9);
+    }
+
+    .hero-content p {
+      color: #e0e0e0;
+      font-size: 1.05rem;
+      margin: 0 0 30px 0;
       line-height: 1.6;
       font-weight: 300;
     }
 
-    .hero-btn {
-      display: inline-block;
+    .btn-hero-cta {
       background: linear-gradient(135deg, #d4af37, #aa8c2c);
       color: #000;
       font-weight: 700;
-      padding: 12px 30px;
-      border-radius: 30px;
       font-size: 0.9rem;
-      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+      transition: all 0.3s ease;
       letter-spacing: 1px;
     }
 
+    .btn-hero-cta:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+    }
+
     /* =========================================================
-       PROCESOS DE TRABAJO
+       NUESTRO PROCESO DE TRABAJO
        ========================================================= */
     .process-section {
-      max-width: 1300px;
-      margin: 0 auto 60px auto;
-      padding: 0 20px;
+      margin-top: 70px;
+      padding-top: 40px;
     }
 
     .section-title {
       font-family: 'Cinzel', serif;
       color: #d4af37;
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       text-align: center;
-      margin-bottom: 40px;
-      letter-spacing: 1.5px;
+      margin-bottom: 50px;
+      letter-spacing: 2px;
     }
 
     .process-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 25px;
     }
 
     .process-card {
-      background: rgba(17, 17, 17, 0.85);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      border-radius: 20px;
-      padding: 25px 20px;
+      background: #111111;
+      border-radius: 14px;
+      padding: 35px 20px 30px 20px;
       text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      position: relative;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .process-card:hover {
+      transform: translateY(-10px);
+      border-color: #d4af37;
+      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.2);
+      background: #161616;
     }
 
     .process-number {
-      display: inline-block;
-      width: 38px;
-      height: 38px;
+      position: absolute;
+      top: -20px;
+      background: linear-gradient(135deg, #d4af37, #aa8c2c);
+      color: #000000;
+      font-weight: 800;
+      font-size: 1rem;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: rgba(212, 175, 55, 0.15);
-      border: 1px solid #d4af37;
-      color: #d4af37;
-      font-weight: 700;
-      line-height: 36px;
-      margin-bottom: 12px;
-      font-family: 'Cinzel', serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
 
-    .process-card h3 {
-      font-family: 'Cinzel', serif;
+    .process-icon {
+      font-size: 2.2rem;
       color: #d4af37;
-      font-size: 0.95rem;
-      margin-bottom: 10px;
+      margin-top: 10px;
+      margin-bottom: 18px;
+    }
+
+    .process-card h4 {
+      font-family: 'Cinzel', serif;
+      color: #ffffff;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      transition: color 0.3s ease;
+    }
+
+    .process-card:hover h4 {
+      color: #d4af37;
     }
 
     .process-card p {
-      color: #bbbbbb;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
+      color: #b0b0b0;
       line-height: 1.5;
       font-weight: 300;
     }
 
     /* =========================================================
-       FOOTER UNIFICADO
+       FOOTER
        ========================================================= */
     .main-footer {
-      background-color: #c59b27 !important;
-      color: #000000 !important;
-      padding: 25px 20px 20px 20px !important;
-      width: 100% !important;
+      background-color: #c59b27;
+      color: #000;
+      padding: 30px 20px 20px 20px;
+      margin-top: 80px;
     }
 
     .footer-content {
       max-width: 1100px;
-      margin: 0 auto 15px auto;
+      margin: 0 auto 20px auto;
       display: flex;
       justify-content: space-around;
       align-items: center;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 20px;
     }
 
     .footer-info {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-info i {
+      font-size: 1.2rem;
     }
 
     .footer-copy {
       text-align: center;
       border-top: 1px solid rgba(0, 0, 0, 0.15);
-      padding-top: 12px;
-      font-size: 0.75rem;
+      padding-top: 15px;
+      font-size: 0.8rem;
       font-weight: 600;
     }
 
+    /* Botón Flotante WhatsApp */
     .btn-wapp-flotante {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
+      bottom: 25px;
+      right: 25px;
+      width: 55px;
+      height: 55px;
       background-color: #25D366;
       color: #fff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       box-shadow: 0 4px 15px rgba(0,0,0,0.4);
       z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-wapp-flotante:hover {
+      transform: scale(1.1);
     }
 
     /* =========================================================
-       ADAPTACIÓN RESPONSIVO PARA MÓVILES (CELULARES)
+       CHATBOT DE PREGUNTAS FRECUENTES (FAQ)
        ========================================================= */
+    .artnovus-chat-widget {
+      position: fixed;
+      bottom: 95px;
+      right: 25px;
+      z-index: 9998;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .chat-toggle-btn {
+      width: 55px;
+      height: 55px;
+      background: linear-gradient(135deg, #d4af37, #aa8c2c);
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .chat-toggle-btn:hover {
+      transform: scale(1.1);
+      background: #f3d06c;
+    }
+
+    .chat-window {
+      position: absolute;
+      bottom: 70px;
+      right: 0;
+      width: 330px;
+      height: 450px;
+      background-color: #111111;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      transform: scale(0);
+      transform-origin: bottom right;
+      opacity: 0;
+    }
+
+    .chat-window.active {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .chat-header {
+      background-color: #0a0a0a;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .chat-bot-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-bot-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .chat-header h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      color: #d4af37;
+      margin: 0;
+    }
+
+    .chat-status {
+      font-size: 0.7rem;
+      color: #25D366;
+    }
+
+    .chat-close-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .chat-body {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.85rem;
+    }
+
+    .chat-message {
+      padding: 10px 14px;
+      border-radius: 10px;
+      max-width: 85%;
+      line-height: 1.4;
+    }
+
+    .bot-message {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: #e0e0e0;
+      border-left: 3px solid #d4af37;
+      align-self: flex-start;
+    }
+
+    .user-message {
+      background: linear-gradient(135deg, #d4af37, #aa8c2c);
+      color: #000;
+      font-weight: 600;
+      align-self: flex-end;
+    }
+
+    .chat-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 5px;
+    }
+
+    .chat-option-chip {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #d4af37;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .chat-option-chip:hover {
+      background: #d4af37;
+      color: #000;
+    }
+
+    .chat-footer {
+      padding: 12px;
+      background-color: #0a0a0a;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      display: flex;
+      gap: 8px;
+    }
+
+    .chat-footer input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 12px;
+      border-radius: 20px;
+      color: #fff;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .chat-footer input:focus {
+      border-color: #d4af37;
+    }
+
+    .chat-footer button {
+      background: #d4af37;
+      border: none;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      color: #000;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+    }
+
+    .chat-footer button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Responsivo */
     @media (max-width: 992px) {
       .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .process-grid {
         grid-template-columns: 1fr;
+        gap: 40px 0;
       }
-      
-      .hero-title {
-        font-size: 1.8rem;
-      }
-
-      /* Ocultar botones largos de la barra superior en móvil para evitar desbordamiento */
-      .desktop-hide {
-        display: none !important;
-      }
-
-      /* Mostrar los botones dentro del menú desplegable móvil */
-      .mobile-only-action {
-        display: flex !important;
+      .hero-section {
+        padding: 60px 20px;
         justify-content: center;
-        width: 80% !important;
-        margin: 8px auto;
-        padding: 10px !important;
-        border-radius: 20px;
         text-align: center;
       }
-
-      /* Estilo del menú desplegable móvil */
+      .hero-content {
+        text-align: center;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
       .nav-menu {
         display: none;
-        width: 100%;
-        flex-direction: column;
-        background-color: #0a0a0a;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 15px 0;
-        border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.9);
-        z-index: 99999;
       }
-
-      .nav-menu.active {
-        display: flex !important;
-      }
-
-      .nav-menu li {
-        width: 100%;
-        text-align: center;
-      }
-
-      .nav-link {
-        display: block;
-        padding: 10px;
-        width: 100%;
-        border-radius: 0;
-      }
-
       .menu-toggle {
-        display: block !important;
+        display: block;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER NAVEGACIÓN -->
+  <!-- HEADER GLOBAL -->
   <header class="main-header">
     <div class="header-container">
+      
+      <!-- LOGO + NOMBRE DE LA EMPRESA -->
       <div class="brand-container">
         <a href="index.html" class="logo-link">
-          <img src="ImagenesServcios/logo.png" alt="Logo ARTNOVUS" class="brand-logo">
+          <img src="ImagenesInicio/logo.png" alt="Logo ARTNOVUS" class="brand-logo">
         </a>
         <div class="brand-text">
           <span class="brand-name">ARTNOVUS</span>
-          <span class="brand-tagline" data-tr-es="Agencia Multimedia" data-tr-en="Multimedia Agency" data-tr-fr="Agence Multimédia">Agencia Multimedia</span>
+          <span class="brand-tagline">Agencia Multimedia</span>
         </div>
       </div>
 
+      <!-- MENÚ DE NAVEGACIÓN --> 
       <nav>
         <ul class="nav-menu" id="nav-menu">
           <li><a href="index.html" class="nav-link active" data-tr-es="INICIO" data-tr-en="HOME" data-tr-fr="ACCUEIL">INICIO</a></li>
@@ -430,85 +693,109 @@
           <li><a href="../5.portafolio/portafolio.html" class="nav-link" data-tr-es="PORTAFOLIO" data-tr-en="PORTFOLIO" data-tr-fr="PORTFOLIO">PORTAFOLIO</a></li>
           <li><a href="../2.servicios/servicios.html" class="nav-link" data-tr-es="SERVICIOS" data-tr-en="SERVICES" data-tr-fr="SERVICES">SERVICIOS</a></li>
           <li><a href="../4.contacto/contacto.html" class="nav-link" data-tr-es="CONTÁCTANOS" data-tr-en="CONTACT US" data-tr-fr="CONTACT">CONTÁCTANOS</a></li>
-          
-          <!-- Botones de sesión y whatsapp dentro del menú móvil -->
-          <li>
-            <a href="../ingreso.html" class="action-btn mobile-only-action">
-              <i class="fa-solid fa-user-gear"></i>
-              <span data-tr-es="INICIAR SESIÓN" data-tr-en="LOG IN" data-tr-fr="CONNEXION">INICIAR SESIÓN</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://wa.me/573126668958?text=Hola,%20me%20gustaría%20asesoría%20con%20sus%20servicios." target="_blank" rel="noopener noreferrer" class="action-btn btn-whatsapp mobile-only-action">
-              <i class="fa-brands fa-whatsapp"></i>
-              <span data-tr-es="HABLEMOS" data-tr-en="LET'S TALK" data-tr-fr="PARLONS">HABLEMOS</span>
-            </a>
-          </li>
         </ul>
       </nav>
 
+      <!-- ACCIONES ENCABEZADO -->
       <div class="header-actions">
-        <a href="../ingreso.html" class="action-btn desktop-hide">
+        <a href="../ingreso.html" class="action-btn">
           <i class="fa-solid fa-user-gear"></i>
           <span data-tr-es="INICIAR SESIÓN" data-tr-en="LOG IN" data-tr-fr="CONNEXION">INICIAR SESIÓN</span>
         </a>
-        <a href="https://wa.me/573126668958?text=Hola,%20me%20gustaría%20asesoría%20con%20sus%20servicios." target="_blank" rel="noopener noreferrer" class="action-btn btn-whatsapp desktop-hide">
-          <i class="fa-brands fa-whatsapp"></i>
-          <span data-tr-es="HABLEMOS" data-tr-en="LET'S TALK" data-tr-fr="PARLONS">HABLEMOS</span>
-        </a>
+       
 
-        <!-- BOTÓN DE IDIOMA -->
+        <!-- BOTÓN DE CAMBIO DE IDIOMA (UBICADO EXACTAMENTE DESPUÉS DE HABLEMOS) -->
         <button class="btn-lang-toggle" onclick="cycleLanguage()">
           <i class="fa-solid fa-globe"></i> <span id="lang-label">ES</span>
         </button>
-
-        <!-- BOTÓN HAMBURGUESA -->
-        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menú">
-          <i class="fa-solid fa-bars"></i>
-        </button>
       </div>
+
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
     </div>
   </header>
 
-  <!-- CONTENIDO PRINCIPAL / INICIO -->
   <main>
-    <section class="hero-section">
-      <h1 class="hero-title" data-tr-es="CREAMOS CONECTAMOS TRANSFORMAMOS" data-tr-en="WE CREATE, CONNECT, TRANSFORM" data-tr-fr="NOUS CRÉONS, CONNECTONS, TRANSFORMONS">CREAMOS CONECTAMOS TRANSFORMAMOS</h1>
-      <p class="hero-subtitle" data-tr-es="Potenciamos marcas a través de estrategias creativas, contenido impactante y experiencias digitales que generan resultados reales." data-tr-en="We empower brands through creative strategies, impactful content, and digital experiences that generate real results." data-tr-fr="Nous dynamisons les marques grâce à des stratégies créatives, un contenu percutant et des expériences numériques qui génèrent de vrais résultats.">
-        Potenciamos marcas a través de estrategias creativas, contenido impactante y experiencias digitales que generan resultados reales.
-      </p>
-      <a href="../5.portafolio/portafolio.html" class="hero-btn" data-tr-es="VER PORTAFOLIO" data-tr-en="VIEW PORTFOLIO" data-tr-fr="VOIR LE PORTFOLIO">VER PORTAFOLIO</a>
-    </section>
-
-    <!-- PROCESOS DE TRABAJO -->
-    <section class="process-section">
-      <h2 class="section-title" data-tr-es="NUESTROS PROCESOS DE TRABAJO" data-tr-en="OUR WORK PROCESS" data-tr-fr="NOS PROCESSUS DE TRAVAIL">NUESTROS PROCESOS DE TRABAJO</h2>
-      <div class="process-grid">
-        <div class="process-card">
-          <span class="process-number">01</span>
-          <h3 data-tr-es="DESCUBRIMIENTO" data-tr-en="DISCOVERY" data-tr-fr="DÉCOUVERTE">DESCUBRIMIENTO</h3>
-          <p data-tr-es="Analizamos los objetivos de tu marca, mercado meta y necesidades estratégicas." data-tr-en="We analyze your brand objectives, target market, and strategic needs." data-tr-fr="Nous analysons les objectifs de votre marque, votre marché cible et vos besoins stratégiques.">Analizamos los objetivos de tu marca, mercado meta y necesidades estratégicas.</p>
-        </div>
-        <div class="process-card">
-          <span class="process-number">02</span>
-          <h3 data-tr-es="ESTRATEGIA Y DISEÑO" data-tr-en="STRATEGY & DESIGN" data-tr-fr="STRATÉGIE ET DESIGN">ESTRATEGIA Y DISEÑO</h3>
-          <p data-tr-es="Creamos propuestas visuales y conceptos creativos adaptados a tu identidad." data-tr-en="We create visual proposals and creative concepts tailored to your identity." data-tr-fr="Nous créons des propositions visuelles et des concepts créatifs adaptés à votre identité.">Creamos propuestas visuales y conceptos creativos adaptados a tu identidad.</p>
-        </div>
-        <div class="process-card">
-          <span class="process-number">03</span>
-          <h3 data-tr-es="DESARROLLO" data-tr-en="DEVELOPMENT" data-tr-fr="DÉVELOPPEMENT">DESARROLLO</h3>
-          <p data-tr-es="Ejecutamos la producción gráfica, desarrollo web y material audiovisual." data-tr-en="We execute graphic production, web development, and audiovisual material." data-tr-fr="Nous exécutons la production graphique, le développement web et le matériel audiovisuel.">Ejecutamos la producción gráfica, desarrollo web y material audiovisual.</p>
-        </div>
-        <div class="process-card">
-          <span class="process-number">04</span>
-          <h3 data-tr-es="LANZAMIENTO" data-tr-en="LAUNCH" data-tr-fr="LANCEMENT">LANZAMIENTO</h3>
-          <p data-tr-es="Entregamos proyectos optimizados listos para impactar en tu audiencia." data-tr-en="We deliver optimized projects ready to impact your audience." data-tr-fr="Nous livrons des projets optimisés prêts à impacter votre audience.">Entregamos proyectos optimizados listos para impactar en tu audiencia.</p>
+    <!-- HERO SECTION -->
+    <section class="hero-section" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('ImagenesInicio/imag.inicio.jpg'); background-size: cover; background-position: center;">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 data-tr-es="CREAMOS<br>CONECTAMOS<br>TRANSFORMAMOS" data-tr-en="WE CREATE<br>WE CONNECT<br>WE TRANSFORM" data-tr-fr="NOUS CRÉONS<br>NOUS CONNECTONS<br>NOUS TRANSFORMONS">CREAMOS<br>CONECTAMOS<br>TRANSFORMAMOS</h1>
+          <p data-tr-es="Potenciamos marcas a través de estrategias creativas, contenido impactante y experiencias digitales que generan resultados reales." data-tr-en="We empower brands through creative strategies, impactful content, and digital experiences that generate real results." data-tr-fr="Nous propulsons les marques grâce à des stratégies créatives, un contenu percutant et des expériences numériques qui génèrent de vrais résultats.">Potenciamos marcas a través de estrategias creativas, contenido impactante y experiencias digitales que generan resultados reales.</p>
+          <a href="ImagenesInicio/Portafolio .pdf" class="btn-hero-cta" data-tr-es="VER PORTAFOLIO" data-tr-en="VIEW PORTFOLIO" data-tr-fr="VOIR LE PORTFOLIO">VER PORTAFOLIO</a>
         </div>
       </div>
     </section>
+
+    <!-- SECCIÓN: NUESTRO PROCESO DE TRABAJO -->
+    <div class="process-section" id="proceso">
+      <h2 class="section-title" data-tr-es="NUESTROS PROCESOS DE TRABAJO" data-tr-en="OUR WORK PROCESS" data-tr-fr="NOTRE PROCESSUS DE TRAVAIL">NUESTROS PROCESOS DE TRABAJO</h2>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="process-number">01</div>
+          <div class="process-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <h4 data-tr-es="DESCUBRIMIENTO" data-tr-en="DISCOVERY" data-tr-fr="DÉCOUVERTE">DESCUBRIMIENTO</h4>
+          <p data-tr-es="Analizamos los objetivos de tu marca, mercado meta y necesidades estratégicas." data-tr-en="We analyze your brand goals, target market, and strategic needs." data-tr-fr="Nous analysons les objectifs de votre marque, le marché cible et les besoins stratégiques.">Analizamos los objetivos de tu marca, mercado meta y necesidades estratégicas.</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-number">02</div>
+          <div class="process-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+          <h4 data-tr-es="ESTRATEGIA Y DISEÑO" data-tr-en="STRATEGY & DESIGN" data-tr-fr="STRATÉGIE & DESIGN">ESTRATEGIA Y DISEÑO</h4>
+          <p data-tr-es="Creamos propuestas visuales y conceptos creativos adaptados a tu identidad." data-tr-en="We create visual proposals and creative concepts tailored to your identity." data-tr-fr="Nous créons des propositions visuelles et des concepts créatifs adaptés à votre identité.">Creamos propuestas visuales y conceptos creativos adaptados a tu identidad.</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-number">03</div>
+          <div class="process-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <h4 data-tr-es="DESARROLLO" data-tr-en="DEVELOPMENT" data-tr-fr="DÉVELOPPEMENT">DESARROLLO</h4>
+          <p data-tr-es="Ejecutamos la producción gráfica, desarrollo web y material audiovisual." data-tr-en="We execute graphic production, web development, and audiovisual material." data-tr-fr="Nous exécutons la production graphique, le développement web et le matériel audiovisuel.">Ejecutamos la producción gráfica, desarrollo web y material audiovisual.</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-number">04</div>
+          <div class="process-icon"><i class="fa-solid fa-rocket"></i></div>
+          <h4 data-tr-es="LANZAMIENTO" data-tr-en="LAUNCH" data-tr-fr="LANCEMENT">LANZAMIENTO</h4>
+          <p data-tr-es="Entregamos proyectos optimizados listos para impactar en tu audiencia." data-tr-en="We deliver optimized projects ready to impact your audience." data-tr-fr="Nous livrons des projets optimisés prêts à impacter votre public.">Entregamos proyectos optimizados listos para impactar en tu audiencia.</p>
+        </div>
+      </div>
+    </div>
   </main>
 
-  <!-- FOOTER UNIFICADO -->
+  <!-- MODAL DE INICIO DE SESIÓN -->
+  <div class="login-modal-overlay" id="login-modal" style="display: none;">
+    <div class="login-modal-container">
+      <button type="button" class="close-modal-btn" id="close-login-btn">&times;</button>
+      <div class="login-header">
+        <img src="ImagenesInicio/logo.png" alt="Logo ARTNOVUS" class="login-logo">
+        <h3>BIENVENIDO A ARTNOVUS</h3>
+        <p>Ingresa tus credenciales para acceder a tu cuenta</p>
+      </div>
+      <form class="login-form" id="login-form">
+        <div class="input-group">
+          <label for="login-email">Correo Electrónico</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="login-email" placeholder="ejemplo@artnovus.com" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="login-password">Contraseña</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="login-password" placeholder="••••••••" required>
+            <i class="fa-solid fa-eye toggle-password" id="toggle-password"></i>
+          </div>
+        </div>
+        <button type="submit" class="submit-login-btn">INGRESAR</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
   <footer class="main-footer">
     <div class="footer-content">
       <div class="footer-info">
@@ -524,18 +811,55 @@
         <span data-tr-es="Cali, Colombia" data-tr-en="Cali, Colombia" data-tr-fr="Cali, Colombie">Cali, Colombia</span>
       </div>
     </div>
-
     <div class="footer-copy">
       <p data-tr-es="&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO ." data-tr-en="&copy; 2026 ARTNOVUS. All rights reserved BY MELANIE QUINTERO ." data-tr-fr="&copy; 2026 ARTNOVUS. Tous droits réservés PAR MELANIE QUINTERO .">&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO .</p>
     </div>
   </footer>
 
-  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-  <a href="https://wa.me/573126668958?text=Hola,%20quiero%20más%20información%20sobre%20ARTNOVUS." target="_blank" class="btn-wapp-flotante" aria-label="Chat WhatsApp">
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a href="https://wa.me/573126668958?text=Hola,%20quisiera%20más%20información" class="btn-wapp-flotante" target="_blank" rel="noopener noreferrer" title="Chat de WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-  <!-- SCRIPT DE TRADUCCIÓN -->
+  <!-- WIDGET DE CHATBOT DE PREGUNTAS FRECUENTES (FAQ) -->
+  <div class="artnovus-chat-widget">
+    <button class="chat-toggle-btn" id="chat-toggle-btn" title="Preguntas Frecuentes ARTNOVUS">
+      <i class="fa-solid fa-comments" id="chat-icon"></i>
+    </button>
+
+    <div class="chat-window" id="chat-window">
+      <div class="chat-header">
+        <div class="chat-bot-info">
+          <img src="ImagenesInicio/logo.png" alt="Logo" class="chat-bot-logo">
+          <div>
+            <h4>FAQ ARTNOVUS</h4>
+            <span class="chat-status">● Preguntas Frecuentes</span>
+          </div>
+        </div>
+        <button class="chat-close-btn" id="chat-close-btn">&times;</button>
+      </div>
+
+      <div class="chat-body" id="chat-body">
+        <div class="chat-message bot-message">
+          ¡Hola! 👋 Bienvenido a las Preguntas Frecuentes de <strong>ARTNOVUS</strong>. Selecciona una duda o escribe tu consulta:
+        </div>
+        
+        <div class="chat-options">
+          <button class="chat-option-chip" data-faq="servicios">¿Qué servicios ofrecen?</button>
+          <button class="chat-option-chip" data-faq="ubicacion">¿Dónde están ubicados?</button>
+          <button class="chat-option-chip" data-faq="contacto">¿Cómo contrato un servicio?</button>
+          <button class="chat-option-chip" data-faq="precios">¿Cuáles son los precios?</button>
+        </div>
+      </div>
+
+      <div class="chat-footer">
+        <input type="text" id="chat-input" placeholder="Escribe tu pregunta...">
+        <button id="chat-send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT DE TRADUCCIÓN INTERNO CORREGIDO Y PROBADO -->
   <script>
     const languages = ['es', 'en', 'fr'];
     let langIndex = 0;
@@ -544,9 +868,11 @@
       langIndex = (langIndex + 1) % languages.length;
       const targetLang = languages[langIndex];
       
+      // Actualizar texto del botón
       const label = document.getElementById('lang-label');
       if (label) label.textContent = targetLang.toUpperCase();
 
+      // Buscar todos los elementos traducibles
       const elements = document.querySelectorAll('[data-tr-es]');
       elements.forEach(el => {
         let text = el.getAttribute('data-tr-' + targetLang);
@@ -557,19 +883,86 @@
     }
   </script>
 
-  <!-- SCRIPT MENÚ HAMBURGUESA MÓVIL -->
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-
-    if (menuToggle && navMenu) {
-      menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-      });
-    }
-  </script>
-
-  <!-- Script JS Externo -->
+  <!-- Script JavaScript principal y del Chatbot FAQ -->
   <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const chatToggleBtn = document.getElementById('chat-toggle-btn');
+      const chatWindow = document.getElementById('chat-window');
+      const chatCloseBtn = document.getElementById('chat-close-btn');
+      const chatBody = document.getElementById('chat-body');
+      const chatInput = document.getElementById('chat-input');
+      const chatSendBtn = document.getElementById('chat-send-btn');
+
+      if (chatToggleBtn) {
+        chatToggleBtn.addEventListener('click', () => {
+          chatWindow.classList.toggle('active');
+        });
+      }
+
+      if (chatCloseBtn) {
+        chatCloseBtn.addEventListener('click', () => {
+          chatWindow.classList.remove('active');
+        });
+      }
+
+      function appendMessage(text, sender) {
+        const msgDiv = document.createElement('div');
+        msgDiv.classList.add('chat-message', sender === 'user' ? 'user-message' : 'bot-message');
+        msgDiv.innerHTML = text;
+        chatBody.appendChild(msgDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+
+      function handleFAQResponse(query) {
+        setTimeout(() => {
+          const q = query.toLowerCase();
+          let reply = "";
+
+          if (q.includes('servicio') || q.includes('ofrecen') || q.includes('hacen')) {
+            reply = "En <strong>ARTNOVUS</strong> ofrecemos: <br>• Branding e Identidad Visual<br>• Desarrollo Web Profesional<br>• Diseño para Redes Sociales<br>• Marketing Digital y Audiovisual 🎥";
+          } 
+          else if (q.includes('ubicado') || q.includes('donde') || q.includes('cali')) {
+            reply = "📍 Nos encontramos en <strong>Cali, Colombia</strong>, prestando servicios digitales y multimedia de manera local y virtual.";
+          } 
+          else if (q.includes('contrato') || q.includes('contacto') || q.includes('comunicar') || q.includes('whatsapp')) {
+            reply = "Para iniciar un proyecto con nosotros, puedes escribirnos directamente a nuestro WhatsApp de atención: <br><a href='https://wa.me/573126668958?text=Hola,%20quiero%20contratar%20sus%20servicios' target='_blank' style='color:#25D366; font-weight:bold;'>📲 Abrir WhatsApp de ARTNOVUS</a>";
+          } 
+          else if (q.includes('precio') || q.includes('costo') || q.includes('cotizar') || q.includes('cuanto')) {
+            reply = "💰 Los precios varían según las necesidades de tu marca (tipo de web, paquete de diseño, etc.). ¡Escríbenos por WhatsApp para darte una cotización exacta y sin compromiso!";
+          } 
+          else {
+            reply = "Entiendo tu consulta. Para darte una respuesta detallada o un presupuesto personalizado, te invitamos a hablar con un asesor: <br><a href='https://wa.me/573126668958?text=Hola,%20tengo%20una%20duda%20sobre%20sus%20servicios' target='_blank' style='color:#25D366; font-weight:bold;'>📲 Chatear con un asesor</a>";
+          }
+
+          appendMessage(reply, 'bot');
+        }, 600);
+      }
+
+      function processUserMessage() {
+        const text = chatInput.value.trim();
+        if (text === '') return;
+        
+        appendMessage(text, 'user');
+        chatInput.value = '';
+        handleFAQResponse(text);
+      }
+
+      if (chatSendBtn) chatSendBtn.addEventListener('click', processUserMessage);
+      if (chatInput) {
+        chatInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') processUserMessage();
+        });
+      }
+
+      document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('chat-option-chip')) {
+          const optionText = e.target.textContent;
+          appendMessage(optionText, 'user');
+          handleFAQResponse(optionText);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
