@@ -15,7 +15,7 @@
   <style>
 
 /* =========================================================
-   MENÚ HAMBURGUESA Y RESPONSIVO MÓVIL (SOLO ESTO)
+   MENÚ HAMBURGUESA Y RESPONSIVO MÓVIL
    ========================================================= */
 @media (max-width: 992px) {
   .nav-menu {
@@ -58,29 +58,40 @@
 }
 
     /* =========================================================
-       BOTÓN DE IDIOMA (UBICADO DESPUÉS DE HABLEMOS)
+       BOTÓN DE IDIOMA FLOTANTE (SOLO ES / EN)
        ========================================================= */
-    .btn-lang-toggle {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(212, 175, 55, 0.4);
+    .btn-lang-flotante {
+      position: fixed;
+      bottom: 90px;
+      right: 25px;
+      width: 55px;
+      height: 55px;
+      background: #0a0a0a;
+      border: 2px solid #d4af37;
       color: #d4af37;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 8px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      display: inline-flex;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 6px;
-      transition: all 0.3s ease;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
-    .btn-lang-toggle:hover {
+    .btn-lang-flotante i {
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+
+    .btn-lang-flotante:hover {
+      transform: scale(1.1);
       background: #d4af37;
       color: #000000;
-      border-color: #d4af37;
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
     }
 
     /* =========================================================
@@ -730,11 +741,11 @@
       <!-- MENÚ DE NAVEGACIÓN --> 
       <nav>
         <ul class="nav-menu" id="nav-menu">
-          <li><a href="index.html" class="nav-link active" data-tr-es="INICIO" data-tr-en="HOME" data-tr-fr="ACCUEIL">INICIO</a></li>
-          <li><a href="../3.nosotros/nosotros.html" class="nav-link" data-tr-es="NOSOTROS" data-tr-en="ABOUT" data-tr-fr="À PROPOS">NOSOTROS</a></li>
-          <li><a href="../5.portafolio/portafolio.html" class="nav-link" data-tr-es="PORTAFOLIO" data-tr-en="PORTFOLIO" data-tr-fr="PORTFOLIO">PORTAFOLIO</a></li>
-          <li><a href="../2.servicios/servicios.html" class="nav-link" data-tr-es="SERVICIOS" data-tr-en="SERVICES" data-tr-fr="SERVICES">SERVICIOS</a></li>
-          <li><a href="../4.contacto/contacto.html" class="nav-link" data-tr-es="CONTÁCTANOS" data-tr-en="CONTACT US" data-tr-fr="CONTACT">CONTÁCTANOS</a></li>
+          <li><a href="index.html" class="nav-link active" data-tr-es="INICIO" data-tr-en="HOME">INICIO</a></li>
+          <li><a href="../3.nosotros/nosotros.html" class="nav-link" data-tr-es="NOSOTROS" data-tr-en="ABOUT">NOSOTROS</a></li>
+          <li><a href="../5.portafolio/portafolio.html" class="nav-link" data-tr-es="PORTAFOLIO" data-tr-en="PORTFOLIO">PORTAFOLIO</a></li>
+          <li><a href="../2.servicios/servicios.html" class="nav-link" data-tr-es="SERVICIOS" data-tr-en="SERVICES">SERVICIOS</a></li>
+          <li><a href="../4.contacto/contacto.html" class="nav-link" data-tr-es="CONTÁCTANOS" data-tr-en="CONTACT US">CONTÁCTANOS</a></li>
         </ul>
       </nav>
 
@@ -742,13 +753,8 @@
       <div class="header-actions">
         <a href="../ingreso.html" class="action-btn">
           <i class="fa-solid fa-user-gear"></i>
-          <span data-tr-es="INICIAR SESIÓN" data-tr-en="LOG IN" data-tr-fr="CONNEXION">INICIAR SESIÓN</span>
+          <span data-tr-es="INICIAR SESIÓN" data-tr-en="LOG IN">INICIAR SESIÓN</span>
         </a>
-      
-        <!-- BOTÓN DE CAMBIO DE IDIOMA (UBICADO EXACTAMENTE DESPUÉS DE HABLEMOS) -->
-        <button class="btn-lang-toggle" onclick="cycleLanguage()">
-          <i class="fa-solid fa-globe"></i> <span id="lang-label">ES</span>
-        </button>
       </div>
 
       <button class="menu-toggle" id="menu-toggle">
@@ -763,45 +769,45 @@
     <section class="hero-section" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('ImagenesInicio/imag.inicio.jpg'); background-size: cover; background-position: center;">
       <div class="hero-container">
         <div class="hero-content">
-          <h1 data-tr-es="CREAMOS,<br>CONECTAMOS,<br>TRANSFORMAMOS" data-tr-en="WE CREATE<br>WE CONNECT<br>WE TRANSFORM" data-tr-fr="NOUS CRÉONS<br>NOUS CONNECTONS<br>NOUS TRANSFORMONS">CREAMOS<br>CONECTAMOS<br>TRANSFORMAMOS</h1>
+          <h1 data-tr-es="CREAMOS,<br>CONECTAMOS,<br>TRANSFORMAMOS" data-tr-en="WE CREATE<br>WE CONNECT<br>WE TRANSFORM">CREAMOS<br>CONECTAMOS<br>TRANSFORMAMOS</h1>
           <p data-tr-es="Potenciamos marcas a través de estrategias creativas, contenido impactante 
-             y experiencias digitales que generan resultados reales." data-tr-en="We empower brands through creative strategies, impactful content, and digital experiences that generate real results." data-tr-fr="Nous propulsons les marques grâce à des stratégies créatives, un contenu percutant et des expériences numériques qui génèrent de vrais résultats.">Potenciamos marcas a través de estrategias creativas, contenido impactante y experiencias digitales que generan resultados reales.</p>
-          <a href="ImagenesInicio/Portafolio .pdf" class="btn-hero-cta" data-tr-es="VER PORTAFOLIO" data-tr-en="VIEW PORTFOLIO" data-tr-fr="VOIR LE PORTFOLIO">VER PORTAFOLIO</a>
+             y experiencias digitales que generan resultados reales." data-tr-en="We empower brands through creative strategies, impactful content, and digital experiences that generate real results.">Potenciamos marcas a través de estrategias creativas, contenido impactante y experiencias digitales que generan resultados reales.</p>
+          <a href="ImagenesInicio/Portafolio .pdf" class="btn-hero-cta" data-tr-es="VER PORTAFOLIO" data-tr-en="VIEW PORTFOLIO">VER PORTAFOLIO</a>
         </div>
       </div>
     </section>
 
     <!-- SECCIÓN: NUESTRO PROCESO DE TRABAJO -->
     <div class="process-section" id="proceso">
-      <h2 class="section-title" data-tr-es="NUESTROS PROCESOS DE TRABAJO" data-tr-en="OUR WORK PROCESS" data-tr-fr="NOTRE PROCESSUS DE TRAVAIL">NUESTROS PROCESOS DE TRABAJO</h2>
+      <h2 class="section-title" data-tr-es="NUESTROS PROCESOS DE TRABAJO" data-tr-en="OUR WORK PROCESS">NUESTROS PROCESOS DE TRABAJO</h2>
 
       <div class="process-grid">
         <div class="process-card">
           <div class="process-number">01</div>
           <div class="process-icon"><i class="fa-solid fa-lightbulb"></i></div>
-          <h4 data-tr-es="DESCUBRIMIENTO" data-tr-en="DISCOVERY" data-tr-fr="DÉCOUVERTE">DESCUBRIMIENTO</h4>
-          <p data-tr-es="Analizamos los objetivos de tu marca, mercado meta y necesidades estratégicas." data-tr-en="We analyze your brand goals, target market, and strategic needs." data-tr-fr="Nous analysons les objectifs de votre marque, le marché cible et les besoins stratégiques.">Analizamos los objetivos de tu marca, mercado meta y necesidades estratégicas.</p>
+          <h4 data-tr-es="DESCUBRIMIENTO" data-tr-en="DISCOVERY">DESCUBRIMIENTO</h4>
+          <p data-tr-es="Analizamos los objetivos de tu marca, mercado meta y necesidades estratégicas." data-tr-en="We analyze your brand goals, target market, and strategic needs.">Analizamos los objetivos de tu marca, mercado meta y necesidades estratégicas.</p>
         </div>
 
         <div class="process-card">
           <div class="process-number">02</div>
           <div class="process-icon"><i class="fa-solid fa-compass-drafting"></i></div>
-          <h4 data-tr-es="ESTRATEGIA Y DISEÑO" data-tr-en="STRATEGY & DESIGN" data-tr-fr="STRATÉGIE & DESIGN">ESTRATEGIA Y DISEÑO</h4>
-          <p data-tr-es="Creamos propuestas visuales y conceptos creativos adaptados a tu identidad." data-tr-en="We create visual proposals and creative concepts tailored to your identity." data-tr-fr="Nous créons des propositions visuelles et des concepts créatifs adaptés à votre identité.">Creamos propuestas visuales y conceptos creativos adaptados a tu identidad.</p>
+          <h4 data-tr-es="ESTRATEGIA Y DISEÑO" data-tr-en="STRATEGY & DESIGN">ESTRATEGIA Y DISEÑO</h4>
+          <p data-tr-es="Creamos propuestas visuales y conceptos creativos adaptados a tu identidad." data-tr-en="We create visual proposals and creative concepts tailored to your identity.">Creamos propuestas visuales y conceptos creativos adaptados a tu identidad.</p>
         </div>
 
         <div class="process-card">
           <div class="process-number">03</div>
           <div class="process-icon"><i class="fa-solid fa-laptop-code"></i></div>
-          <h4 data-tr-es="DESARROLLO" data-tr-en="DEVELOPMENT" data-tr-fr="DÉVELOPPEMENT">DESARROLLO</h4>
-          <p data-tr-es="Ejecutamos la producción gráfica, desarrollo web y material audiovisual." data-tr-en="We execute graphic production, web development, and audiovisual material." data-tr-fr="Nous exécutons la production graphique, le développement web et le matériel audiovisuel.">Ejecutamos la producción gráfica, desarrollo web y material audiovisual.</p>
+          <h4 data-tr-es="DESARROLLO" data-tr-en="DEVELOPMENT">DESARROLLO</h4>
+          <p data-tr-es="Ejecutamos la producción gráfica, desarrollo web y material audiovisual." data-tr-en="We execute graphic production, web development, and audiovisual material.">Ejecutamos la producción gráfica, desarrollo web y material audiovisual.</p>
         </div>
 
         <div class="process-card">
           <div class="process-number">04</div>
           <div class="process-icon"><i class="fa-solid fa-rocket"></i></div>
-          <h4 data-tr-es="LANZAMIENTO" data-tr-en="LAUNCH" data-tr-fr="LANCEMENT">LANZAMIENTO</h4>
-          <p data-tr-es="Entregamos proyectos optimizados listos para impactar en tu audiencia." data-tr-en="We deliver optimized projects ready to impact your audience." data-tr-fr="Nous livrons des projets optimisés prêts à impacter votre public.">Entregamos proyectos optimizados listos para impactar en tu audiencia.</p>
+          <h4 data-tr-es="LANZAMIENTO" data-tr-en="LAUNCH">LANZAMIENTO</h4>
+          <p data-tr-es="Entregamos proyectos optimizados listos para impactar en tu audiencia." data-tr-en="We deliver optimized projects ready to impact your audience.">Entregamos proyectos optimizados listos para impactar en tu audiencia.</p>
         </div>
       </div>
     </div>
@@ -850,13 +856,19 @@
       </div>
       <div class="footer-info">
         <i class="fa-solid fa-location-dot"></i>
-        <span data-tr-es="Cali, Colombia" data-tr-en="Cali, Colombia" data-tr-fr="Cali, Colombie">Cali, Colombia</span>
+        <span data-tr-es="Cali, Colombia" data-tr-en="Cali, Colombia">Cali, Colombia</span>
       </div>
     </div>
     <div class="footer-copy">
-      <p data-tr-es="&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO ." data-tr-en="&copy; 2026 ARTNOVUS. All rights reserved BY MELANIE QUINTERO ." data-tr-fr="&copy; 2026 ARTNOVUS. Tous droits réservés PAR MELANIE QUINTERO .">&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO .</p>
+      <p data-tr-es="&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO ." data-tr-en="&copy; 2026 ARTNOVUS. All rights reserved BY MELANIE QUINTERO .">&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO .</p>
     </div>
   </footer>
+
+  <!-- BOTÓN FLOTANTE DE TRADUCCIÓN (SOLO ES / EN) -->
+  <button class="btn-lang-flotante" onclick="cycleLanguage()" title="Cambiar idioma">
+    <i class="fa-solid fa-globe"></i>
+    <span id="lang-label">ES</span>
+  </button>
 
   <!-- BOTÓN FLOTANTE WHATSAPP -->
   <a href="https://wa.me/573126668958?text=Hola,%20quisiera%20más%20información" class="btn-wapp-flotante" target="_blank" rel="noopener noreferrer" title="Chat de WhatsApp">
@@ -901,20 +913,18 @@
     </div>
   </div>
 
-  <!-- SCRIPT DE TRADUCCIÓN INTERNO CORREGIDO Y PROBADO -->
+  <!-- SCRIPT DE TRADUCCIÓN INTERNO (ES / EN) -->
   <script>
-    const languages = ['es', 'en', 'fr'];
+    const languages = ['es', 'en'];
     let langIndex = 0;
 
     function cycleLanguage() {
       langIndex = (langIndex + 1) % languages.length;
       const targetLang = languages[langIndex];
       
-      // Actualizar texto del botón
       const label = document.getElementById('lang-label');
       if (label) label.textContent = targetLang.toUpperCase();
 
-      // Buscar todos los elementos traducibles
       const elements = document.querySelectorAll('[data-tr-es]');
       elements.forEach(el => {
         let text = el.getAttribute('data-tr-' + targetLang);
@@ -1007,5 +1017,4 @@
     });
   </script>
 </body>
-
 </html>
