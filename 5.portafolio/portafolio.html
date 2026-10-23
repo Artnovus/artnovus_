@@ -965,5 +965,43 @@
       });
     }
   </script>
+
+<!-- SCRIPT DE FILTROS INTERACTIVOS PARA EL PORTAFOLIO -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const portfolioCards = document.querySelectorAll('.portfolio-card');
+      const audiovisualSection = document.getElementById('audiovisual-section');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // 1. Remueve la clase active de todos los botones y se la asigna al presionado
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+
+          const filterValue = button.getAttribute('data-filter');
+
+          // 2. Filtra las tarjetas de evidencias
+          portfolioCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filterValue === 'all' || filterValue === category) {
+              card.classList.remove('hide');
+            } else {
+              card.classList.add('hide');
+            }
+          });
+
+          // 3. Muestra u oculta la sección de videos según el filtro
+          if (audiovisualSection) {
+            if (filterValue === 'all' || filterValue === 'audiovisual') {
+              audiovisualSection.classList.remove('hide');
+            } else {
+              audiovisualSection.classList.add('hide');
+            }
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
