@@ -17,33 +17,44 @@
 
   <style>
     /* =========================================================
-       BOTÓN DE IDIOMA
+       BOTÓN DE IDIOMA FLOTANTE (ES / EN)
        ========================================================= */
-    .btn-lang-toggle {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(212, 175, 55, 0.4);
+    .btn-lang-flotante {
+      position: fixed;
+      bottom: 90px;
+      right: 25px;
+      width: 55px;
+      height: 55px;
+      background: #0a0a0a;
+      border: 2px solid #d4af37;
       color: #d4af37;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 8px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      display: inline-flex;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 6px;
-      transition: all 0.3s ease;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
-    .btn-lang-toggle:hover {
+    .btn-lang-flotante i {
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+
+    .btn-lang-flotante:hover {
+      transform: scale(1.1);
       background: #d4af37;
       color: #000000;
-      border-color: #d4af37;
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
     }
 
     /* =========================================================
-       CORRECCIÓN DEFINITIVA DE STICKY NAVBAR & FONDO BASE
+       REINICIO Y ESTILOS BASE
        ========================================================= */
     * {
       margin: 0;
@@ -578,7 +589,7 @@
     }
 
     /* =========================================================
-       ADAPTACIÓN MÓVIL (CON BOTÓN DE INICIAR SESIÓN VISIBLE)
+       ADAPTACIÓN MÓVIL (MENÚ FIX DE ANCHO 100%)
        ========================================================= */
     @media (max-width: 992px) {
       .main-header {
@@ -587,9 +598,9 @@
 
       .header-container {
         justify-content: space-between !important;
+        position: relative !important;
       }
 
-      /* Mantiene visible el botón de Iniciar Sesión adaptando su tamaño */
       .header-actions {
         display: flex !important;
         align-items: center !important;
@@ -597,13 +608,8 @@
       }
 
       .action-btn {
-        padding: 6px 10px !important;
-        font-size: 0.7rem !important;
-      }
-
-      .btn-lang-toggle {
-        padding: 6px 10px !important;
-        font-size: 0.7rem !important;
+        padding: 6px 12px !important;
+        font-size: 0.75rem !important;
       }
 
       .menu-toggle {
@@ -612,20 +618,21 @@
         padding: 4px !important;
       }
 
-      /* Menú desplegable hamburguesa */
       .nav-menu {
         display: none !important;
+        position: fixed !important;
+        top: 60px !important;
+        left: 0 !important;
+        right: 0 !important;
         width: 100vw !important;
+        max-width: 100vw !important;
+        transform: none !important;
         flex-direction: column !important;
         background-color: #0a0a0a !important;
-        position: absolute !important;
-        top: 100% !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        padding: 25px 20px !important;
-        border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9) !important;
-        z-index: 99999 !important;
+        padding: 30px 20px !important;
+        border-bottom: 2px solid rgba(212, 175, 55, 0.4) !important;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.95) !important;
+        z-index: 999999 !important;
         gap: 15px !important;
       }
 
@@ -640,12 +647,13 @@
 
       .nav-link {
         display: block !important;
-        padding: 10px 20px !important;
-        width: 100% !important;
+        padding: 12px 20px !important;
+        width: 90% !important;
         max-width: 320px !important;
         margin: 0 auto !important;
         border-radius: 25px !important;
-        font-size: 0.85rem !important;
+        font-size: 0.9rem !important;
+        text-align: center !important;
       }
 
       .nav-link.active {
@@ -656,7 +664,6 @@
         border: 1px solid #d4af37 !important;
       }
 
-      /* Ajustes de grillas en móvil */
       .services-grid, .packages-grid, .stats-container, .calc-options {
         grid-template-columns: 1fr !important;
       }
@@ -674,30 +681,25 @@
         </a>
         <div class="brand-text">
           <span class="brand-name">ARTNOVUS</span>
-          <span class="brand-tagline" data-tr-es="Agencia Multimedia" data-tr-en="Multimedia Agency" data-tr-fr="Agence Multimédia">Agencia Multimedia</span>
+          <span class="brand-tagline" data-tr-es="Agencia Multimedia" data-tr-en="Multimedia Agency">Agencia Multimedia</span>
         </div>
       </div>
 
       <nav>
         <ul class="nav-menu" id="nav-menu">
-          <li><a href="../1.inicio/index.html" class="nav-link" data-tr-es="INICIO" data-tr-en="HOME" data-tr-fr="ACCUEIL">INICIO</a></li>
-          <li><a href="../3.nosotros/nosotros.html" class="nav-link" data-tr-es="NOSOTROS" data-tr-en="ABOUT" data-tr-fr="À PROPOS">NOSOTROS</a></li>
-          <li><a href="../5.portafolio/portafolio.html" class="nav-link" data-tr-es="PORTAFOLIO" data-tr-en="PORTFOLIO" data-tr-fr="PORTFOLIO">PORTAFOLIO</a></li>
-          <li><a href="../2.servicios/servicios.html" class="nav-link active" data-tr-es="SERVICIOS" data-tr-en="SERVICES" data-tr-fr="SERVICES">SERVICIOS</a></li>
-          <li><a href="../4.contacto/contacto.html" class="nav-link" data-tr-es="CONTÁCTANOS" data-tr-en="CONTACT US" data-tr-fr="CONTACT">CONTÁCTANOS</a></li>
+          <li><a href="../1.inicio/index.html" class="nav-link" data-tr-es="INICIO" data-tr-en="HOME">INICIO</a></li>
+          <li><a href="../3.nosotros/nosotros.html" class="nav-link" data-tr-es="NOSOTROS" data-tr-en="ABOUT">NOSOTROS</a></li>
+          <li><a href="../5.portafolio/portafolio.html" class="nav-link" data-tr-es="PORTAFOLIO" data-tr-en="PORTFOLIO">PORTAFOLIO</a></li>
+          <li><a href="../2.servicios/servicios.html" class="nav-link active" data-tr-es="SERVICIOS" data-tr-en="SERVICES">SERVICIOS</a></li>
+          <li><a href="../4.contacto/contacto.html" class="nav-link" data-tr-es="CONTÁCTANOS" data-tr-en="CONTACT US">CONTÁCTANOS</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
         <a href="../ingreso.html" class="action-btn">
           <i class="fa-solid fa-user-gear"></i>
-          <span data-tr-es="INICIAR SESIÓN" data-tr-en="LOG IN" data-tr-fr="CONNEXION">INICIAR SESIÓN</span>
+          <span data-tr-es="INICIAR SESIÓN" data-tr-en="LOG IN">INICIAR SESIÓN</span>
         </a>
-
-        <!-- BOTÓN DE CAMBIO DE IDIOMA -->
-        <button class="btn-lang-toggle" onclick="cycleLanguage()">
-          <i class="fa-solid fa-globe"></i> <span id="lang-label">ES</span>
-        </button>
       </div>
 
       <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
@@ -712,8 +714,8 @@
       
       <!-- Titulo y Subtitulo -->
       <div class="services-header">
-        <h1 class="services-title" data-tr-es="NUESTROS SERVICIOS" data-tr-en="OUR SERVICES" data-tr-fr="NOS SERVICES">NUESTROS SERVICIOS</h1>
-        <p class="services-subtitle" data-tr-es="Soluciones integrales para construir, potenciar y dar vida a tu marca en el mundo digital. Creamos estrategias y diseños." data-tr-en="Comprehensive solutions to build, empower, and bring your brand to life in the digital world. We create strategies and designs." data-tr-fr="Des solutions complètes pour construire, dynamiser et donner vie à votre marque dans le monde numérique. Nous créons des stratégies et des designs.">
+        <h1 class="services-title" data-tr-es="NUESTROS SERVICIOS" data-tr-en="OUR SERVICES">NUESTROS SERVICIOS</h1>
+        <p class="services-subtitle" data-tr-es="Soluciones integrales para construir, potenciar y dar vida a tu marca en el mundo digital. Creamos estrategias y diseños." data-tr-en="Comprehensive solutions to build, empower, and bring your brand to life in the digital world. We create strategies and designs.">
           Soluciones integrales para construir, potenciar y dar vida a tu marca en el mundo digital. Creamos estrategias y diseños.
         </p>
       </div>
@@ -727,8 +729,8 @@
             <img src="ImagenesServcios/pho01.avif" alt="Branding" class="foto-hover">
           </div>
           <div class="card-box">
-            <h3 data-tr-es="BRANDING:" data-tr-en="BRANDING:" data-tr-fr="BRANDING:">BRANDING:</h3>
-            <p data-tr-es="(Identidad que deja huella, incluye diseño de logotipos, manual de identidad)" data-tr-en="(Identity that leaves a mark, includes logo design, identity manual)" data-tr-fr="(Une identité qui laisse sa trace, comprend la conception de logos, manuel d'identité)">(Identidad que deja huella, incluye diseño de logotipos, manual de identidad)</p>
+            <h3 data-tr-es="BRANDING:" data-tr-en="BRANDING:">BRANDING:</h3>
+            <p data-tr-es="(Identidad que deja huella, incluye diseño de logotipos, manual de identidad)" data-tr-en="(Identity that leaves a mark, includes logo design, identity manual)">(Identidad que deja huella, incluye diseño de logotipos, manual de identidad)</p>
           </div>
         </div>
 
@@ -738,8 +740,8 @@
             <img src="ImagenesServcios/pho02.avif" alt="Desarrollo Web" class="foto-hover">
           </div>
           <div class="card-box">
-            <h3 data-tr-es="DESARROLLO WEB:" data-tr-en="WEB DEVELOPMENT:" data-tr-fr="DÉVELOPPEMENT WEB:">DESARROLLO WEB:</h3>
-            <p data-tr-es="(Presencia digital de alto nivel, incluye landing pages, sitios corporativos, portafolios digitales optimizados)" data-tr-en="(High-level digital presence, includes landing pages, corporate sites, optimized digital portfolios)" data-tr-fr="(Présence numérique de haut niveau, comprend landing pages, sites d'entreprise, portefeuilles numériques optimisés)">(Presencia digital de alto nivel, incluye landing pages, sitios corporativos, portafolios digitales optimizados)</p>
+            <h3 data-tr-es="DESARROLLO WEB:" data-tr-en="WEB DEVELOPMENT:">DESARROLLO WEB:</h3>
+            <p data-tr-es="(Presencia digital de alto nivel, incluye landing pages, sitios corporativos, portafolios digitales optimizados)" data-tr-en="(High-level digital presence, includes landing pages, corporate sites, optimized digital portfolios)">(Presencia digital de alto nivel, incluye landing pages, sitios corporativos, portafolios digitales optimizados)</p>
           </div>
         </div>
 
@@ -749,8 +751,8 @@
             <img src="ImagenesServcios/pho03.avif" alt="Diseño para Redes" class="foto-hover">
           </div>
           <div class="card-box">
-            <h3 data-tr-es="DISEÑO PARA REDES:" data-tr-en="SOCIAL MEDIA DESIGN:" data-tr-fr="DESIGN RÉSEAUX SOCIAUX:">DISEÑO PARA REDES:</h3>
-            <p data-tr-es="(Historias que impactan, incluye fotografía profesional, videos de autoría profesional, videos comerciales, reels)" data-tr-en="(Stories that impact, includes professional photography, professional authorship videos, commercial videos, reels)" data-tr-fr="(Des histoires qui ont de l'impact, comprend la photographie professionnelle, des vidéos d'auteur, des vidéos commerciales, des reels)">(Historias que impactan, incluye fotografía profesional, videos de autoría profesional, videos comerciales, reels)</p>
+            <h3 data-tr-es="DISEÑO PARA REDES:" data-tr-en="SOCIAL MEDIA DESIGN:">DISEÑO PARA REDES:</h3>
+            <p data-tr-es="(Historias que impactan, incluye fotografía profesional, videos de autoría profesional, videos comerciales, reels)" data-tr-en="(Stories that impact, includes professional photography, professional authorship videos, commercial videos, reels)">(Historias que impactan, incluye fotografía profesional, videos de autoría profesional, videos comerciales, reels)</p>
           </div>
         </div>
 
@@ -760,8 +762,8 @@
             <img src="ImagenesServcios/pho04.avif" alt="Marketing Digital" class="foto-hover">
           </div>
           <div class="card-box">
-            <h3 data-tr-es="MARKETING DIGITAL:" data-tr-en="DIGITAL MARKETING:" data-tr-fr="MARKETING NUMÉRIQUE:">MARKETING DIGITAL:</h3>
-            <p data-tr-es="(Estrategias que conectan y venden, incluye redes sociales, publicidad digital, diseño de contenido)" data-tr-en="(Strategies that connect and sell, includes social media, digital advertising, content design)" data-tr-fr="(Des stratégies qui connectent et vendent, comprend les réseaux sociaux, la publicité numérique, la conception de contenu)">(Estrategias que conectan y venden, incluye redes sociales, publicidad digital, diseño de contenido)</p>
+            <h3 data-tr-es="MARKETING DIGITAL:" data-tr-en="DIGITAL MARKETING:">MARKETING DIGITAL:</h3>
+            <p data-tr-es="(Estrategias que conectan y venden, incluye redes sociales, publicidad digital, diseño de contenido)" data-tr-en="(Strategies that connect and sell, includes social media, digital advertising, content design)">(Estrategias que conectan y venden, incluye redes sociales, publicidad digital, diseño de contenido)</p>
           </div>
         </div>
 
@@ -769,37 +771,37 @@
 
       <!-- SECCIÓN: PAQUETES CORPORATIVOS -->
       <div class="services-packages">
-        <h2 class="services-title" style="font-size: 1.8rem; text-align: center; margin-bottom: 10px;" data-tr-es="PAQUETES RECOMENDADOS" data-tr-en="RECOMMENDED PACKAGES" data-tr-fr="FORFAITS RECOMMANDÉS">PAQUETES RECOMENDADOS</h2>
+        <h2 class="services-title" style="font-size: 1.8rem; text-align: center; margin-bottom: 10px;" data-tr-es="PAQUETES RECOMENDADOS" data-tr-en="RECOMMENDED PACKAGES">PAQUETES RECOMENDADOS</h2>
         <div class="packages-grid">
           <div class="package-card">
-            <h3 data-tr-es="PLAN EMPRENDEDOR" data-tr-en="ENTREPRENEUR PLAN" data-tr-fr="PLAN ENTREPRENEUR">PLAN EMPRENDEDOR</h3>
-            <p data-tr-es="Ideal para negocios que inician. Incluye diseño de logotipo, manual básico y parrilla inicial para redes sociales." data-tr-en="Ideal for starting businesses. Includes logo design, basic manual, and initial social media grid." data-tr-fr="Idéal pour les entreprises qui débutent. Comprend la conception du logo, le manuel de base et la grille initiale pour les réseaux sociaux.">Ideal para negocios que inician. Incluye diseño de logotipo, manual básico y parrilla inicial para redes sociales.</p>
-            <a href="https://wa.me/573126668958?text=Hola,%20me%20interesa%20el%20Plan%20Emprendedor" target="_blank" class="package-btn" data-tr-es="ELEGIR PLAN" data-tr-en="CHOOSE PLAN" data-tr-fr="CHOISIR LE PLAN">ELEGIR PLAN</a>
+            <h3 data-tr-es="PLAN EMPRENDEDOR" data-tr-en="ENTREPRENEUR PLAN">PLAN EMPRENDEDOR</h3>
+            <p data-tr-es="Ideal para negocios que inician. Incluye diseño de logotipo, manual básico y parrilla inicial para redes sociales." data-tr-en="Ideal for starting businesses. Includes logo design, basic manual, and initial social media grid.">Ideal para negocios que inician. Incluye diseño de logotipo, manual básico y parrilla inicial para redes sociales.</p>
+            <a href="https://wa.me/573126668958?text=Hola,%20me%20interesa%20el%20Plan%20Emprendedor" target="_blank" class="package-btn" data-tr-es="ELEGIR PLAN" data-tr-en="CHOOSE PLAN">ELEGIR PLAN</a>
           </div>
           <div class="package-card featured">
-            <h3 data-tr-es="PLAN PYME AVANZADO" data-tr-en="ADVANCED SME PLAN" data-tr-fr="PLAN PME AVANCÉ">PLAN PYME AVANZADO</h3>
-            <p data-tr-es="Diseñado para escalar. Incluye sitio web corporativo optimizado, branding completo y estrategia digital." data-tr-en="Designed to scale. Includes optimized corporate website, complete branding, and digital strategy." data-tr-fr="Conçu pour évoluer. Comprend un site web d'entreprise optimisé, un branding complet et une stratégie numérique.">Diseñado para escalar. Incluye sitio web corporativo optimizado, branding completo y estrategia digital.</p>
-            <a href="https://wa.me/573126668958?text=Hola,%20me%20interesa%20el%20Plan%20Pyme%20Avanzado" target="_blank" class="package-btn" data-tr-es="ELEGIR PLAN" data-tr-en="CHOOSE PLAN" data-tr-fr="CHOISIR LE PLAN">ELEGIR PLAN</a>
+            <h3 data-tr-es="PLAN PYME AVANZADO" data-tr-en="ADVANCED SME PLAN">PLAN PYME AVANZADO</h3>
+            <p data-tr-es="Diseñado para escalar. Incluye sitio web corporativo optimizado, branding completo y estrategia digital." data-tr-en="Designed to scale. Includes optimized corporate website, complete branding, and digital strategy.">Diseñado para escalar. Incluye sitio web corporativo optimizado, branding completo y estrategia digital.</p>
+            <a href="https://wa.me/573126668958?text=Hola,%20me%20interesa%20el%20Plan%20Pyme%20Avanzado" target="_blank" class="package-btn" data-tr-es="ELEGIR PLAN" data-tr-en="CHOOSE PLAN">ELEGIR PLAN</a>
           </div>
           <div class="package-card">
-            <h3 data-tr-es="PLAN ARTNOVUS PREMIUM" data-tr-en="ARTNOVUS PREMIUM PLAN" data-tr-fr="PLAN ARTNOVUS PREMIUM">PLAN ARTNOVUS PREMIUM</h3>
-            <p data-tr-es="Solución 360°. Cobertura audiovisual total, marketing digital avanzado, web y branding integral." data-tr-en="360° Solution. Total audiovisual coverage, advanced digital marketing, web, and comprehensive branding." data-tr-fr="Solution 360°. Couverture audiovisuelle totale, marketing numérique avancé, web et branding complet.">Solución 360°. Cobertura audiovisual total, marketing digital avanzado, web y branding integral.</p>
-            <a href="https://wa.me/573126668958?text=Hola,%20me%20interesa%20el%20Plan%20Premium" target="_blank" class="package-btn" data-tr-es="ELEGIR PLAN" data-tr-en="CHOOSE PLAN" data-tr-fr="CHOISIR LE PLAN">ELEGIR PLAN</a>
+            <h3 data-tr-es="PLAN ARTNOVUS PREMIUM" data-tr-en="ARTNOVUS PREMIUM PLAN">PLAN ARTNOVUS PREMIUM</h3>
+            <p data-tr-es="Solución 360°. Cobertura audiovisual total, marketing digital avanzado, web y branding integral." data-tr-en="360° Solution. Total audiovisual coverage, advanced digital marketing, web, and comprehensive branding.">Solución 360°. Cobertura audiovisual total, marketing digital avanzado, web y branding integral.</p>
+            <a href="https://wa.me/573126668958?text=Hola,%20me%20interesa%20el%20Plan%20Premium" target="_blank" class="package-btn" data-tr-es="ELEGIR PLAN" data-tr-en="CHOOSE PLAN">ELEGIR PLAN</a>
           </div>
         </div>
       </div>
 
       <!-- COTIZADOR INTERACTIVO -->
       <div class="interactive-calculator">
-        <h3 class="calc-title" data-tr-es="COTIZADOR RÁPIDO" data-tr-en="QUICK QUOTE" data-tr-fr="DEVIS RAPIDE">COTIZADOR RÁPIDO</h3>
-        <p class="calc-subtitle" data-tr-es="Selecciona los servicios que necesitas y envíanos tu solicitud directa a WhatsApp:" data-tr-en="Select the services you need and send your request directly to WhatsApp:" data-tr-fr="Sélectionnez les services dont vous avez besoin et envoyez votre demande directamente sur WhatsApp :">Selecciona los servicios que necesitas y envíanos tu solicitud directa a WhatsApp:</p>
+        <h3 class="calc-title" data-tr-es="COTIZADOR RÁPIDO" data-tr-en="QUICK QUOTE">COTIZADOR RÁPIDO</h3>
+        <p class="calc-subtitle" data-tr-es="Selecciona los servicios que necesitas y envíanos tu solicitud directa a WhatsApp:" data-tr-en="Select the services you need and send your request directly to WhatsApp:">Selecciona los servicios que necesitas y envíanos tu solicitud directa a WhatsApp:</p>
         <div class="calc-options">
-          <label class="calc-checkbox"><input type="checkbox" value="Branding"> <span data-tr-es="Branding & Identidad" data-tr-en="Branding & Identity" data-tr-fr="Branding & Identité">Branding & Identidad</span></label>
-          <label class="calc-checkbox"><input type="checkbox" value="Desarrollo Web"> <span data-tr-es="Desarrollo Web" data-tr-en="Web Development" data-tr-fr="Développement Web">Desarrollo Web</span></label>
-          <label class="calc-checkbox"><input type="checkbox" value="Diseño Redes"> <span data-tr-es="Diseño para Redes & Reels" data-tr-en="Social Design & Reels" data-tr-fr="Design Réseaux & Reels">Diseño para Redes & Reels</span></label>
-          <label class="calc-checkbox"><input type="checkbox" value="Marketing Digital"> <span data-tr-es="Marketing Digital" data-tr-en="Digital Marketing" data-tr-fr="Marketing Numérique">Marketing Digital</span></label>
+          <label class="calc-checkbox"><input type="checkbox" value="Branding"> <span data-tr-es="Branding & Identidad" data-tr-en="Branding & Identity">Branding & Identidad</span></label>
+          <label class="calc-checkbox"><input type="checkbox" value="Desarrollo Web"> <span data-tr-es="Desarrollo Web" data-tr-en="Web Development">Desarrollo Web</span></label>
+          <label class="calc-checkbox"><input type="checkbox" value="Diseño Redes"> <span data-tr-es="Diseño para Redes & Reels" data-tr-en="Social Design & Reels">Diseño para Redes & Reels</span></label>
+          <label class="calc-checkbox"><input type="checkbox" value="Marketing Digital"> <span data-tr-es="Marketing Digital" data-tr-en="Digital Marketing">Marketing Digital</span></label>
         </div>
-        <button type="button" class="calc-submit" onclick="enviarCotizacionWhatsApp()" data-tr-es="COTIZAR AHORA POR WHATSAPP" data-tr-en="QUOTE NOW VIA WHATSAPP" data-tr-fr="DEVIS MAINTENANT VIA WHATSAPP">COTIZAR AHORA POR WHATSAPP</button>
+        <button type="button" class="calc-submit" onclick="enviarCotizacionWhatsApp()" data-tr-es="COTIZAR AHORA POR WHATSAPP" data-tr-en="QUOTE NOW VIA WHATSAPP">COTIZAR AHORA POR WHATSAPP</button>
       </div>
 
       <!-- ÁREA INFERIOR -->
@@ -810,32 +812,32 @@
           <div class="stat-item">
             <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>
             <span class="stat-number">+50</span>
-            <span class="stat-label" data-tr-es="Proyectos completados" data-tr-en="Completed projects" data-tr-fr="Projets réalisés">Proyectos completados</span>
+            <span class="stat-label" data-tr-es="Proyectos completados" data-tr-en="Completed projects">Proyectos completados</span>
           </div>
 
           <div class="stat-item">
             <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
             <span class="stat-number">+30</span>
-            <span class="stat-label" data-tr-es="Marcas impulsadas" data-tr-en="Boosted brands" data-tr-fr="Marques propulsées">Marcas impulsadas</span>
+            <span class="stat-label" data-tr-es="Marcas impulsadas" data-tr-en="Boosted brands">Marcas impulsadas</span>
           </div>
 
           <div class="stat-item">
             <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
             <span class="stat-number">95%</span>
-            <span class="stat-label" data-tr-es="Satisfacción de clientes" data-tr-en="Customer satisfaction" data-tr-fr="Satisfaction client">Satisfacción de clientes</span>
+            <span class="stat-label" data-tr-es="Satisfacción de clientes" data-tr-en="Customer satisfaction">Satisfacción de clientes</span>
           </div>
 
           <div class="stat-item">
             <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18h6m-3 3v-3m0-14a6 6 0 0 0-6 6c0 2.5 1.5 4.5 3 6h6c1.5-1.5 3-3.5 3-6a6 6 0 0 0-6-6z"/></svg>
             <span class="stat-number">+100</span>
-            <span class="stat-label" data-tr-es="Campañas creativas" data-tr-en="Creative campaigns" data-tr-fr="Campagnes créatives">Campañas creativas</span>
+            <span class="stat-label" data-tr-es="Campañas creativas" data-tr-en="Creative campaigns">Campañas creativas</span>
           </div>
         </div>
 
         <!-- Llamado a Acción -->
         <div class="cta-container">
-          <p class="cta-title" data-tr-es="¿BUSCAS UNA SOLUCIÓN PERSONALIZADA?" data-tr-en="LOOKING FOR A CUSTOM SOLUTION?" data-tr-fr="VOUS RECHERCHEZ UNE SOLUTION PERSONNALISÉE ?">¿BUSCAS UNA SOLUCIÓN PERSONALIZADA?</p>
-          <a href="../4.contacto/contacto.html" class="btn-cotizacion" data-tr-es="SOLICITAR COTIZACIÓN" data-tr-en="REQUEST QUOTE" data-tr-fr="DEMANDER UN DEVIS">SOLICITAR COTIZACIÓN</a>
+          <p class="cta-title" data-tr-es="¿BUSCAS UNA SOLUCIÓN PERSONALIZADA?" data-tr-en="LOOKING FOR A CUSTOM SOLUTION?">¿BUSCAS UNA SOLUCIÓN PERSONALIZADA?</p>
+          <a href="../4.contacto/contacto.html" class="btn-cotizacion" data-tr-es="SOLICITAR COTIZACIÓN" data-tr-en="REQUEST QUOTE">SOLICITAR COTIZACIÓN</a>
         </div>
 
       </div>
@@ -856,57 +858,29 @@
       </div>
       <div class="footer-info">
         <i class="fa-solid fa-location-dot"></i>
-        <span data-tr-es="Cali, Colombia" data-tr-en="Cali, Colombia" data-tr-fr="Cali, Colombie">Cali, Colombia</span>
+        <span data-tr-es="Cali, Colombia" data-tr-en="Cali, Colombia">Cali, Colombia</span>
       </div>
     </div>
 
     <div class="footer-copy">
-      <p data-tr-es="&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO ." data-tr-en="&copy; 2026 ARTNOVUS. All rights reserved BY MELANIE QUINTERO ." data-tr-fr="&copy; 2026 ARTNOVUS. Tous droits réservés PAR MELANIE QUINTERO .">&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO .</p>
+      <p data-tr-es="&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO ." data-tr-en="&copy; 2026 ARTNOVUS. All rights reserved BY MELANIE QUINTERO .">&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO .</p>
     </div>
   </footer>
 
-  <!-- MODAL DE INICIO DE SESIÓN -->
-  <div class="login-modal-overlay" id="login-modal" style="display: none;">
-    <div class="login-modal-container">
-      <button type="button" class="close-modal-btn" id="close-login-btn">&times;</button>
-      
-      <div class="login-header">
-        <img src="ImagenesServcios/logo.png" alt="Logo ARTNOVUS" class="login-logo">
-        <h3>BIENVENIDO A ARTNOVUS</h3>
-        <p>Ingresa tus credenciales para acceder a tu cuenta</p>
-      </div>
-
-      <form class="login-form" id="login-form">
-        <div class="input-group">
-          <label for="login-email">Correo Electrónico</label>
-          <div class="input-wrapper">
-            <i class="fa-solid fa-envelope"></i>
-            <input type="email" id="login-email" placeholder="ejemplo@artnovus.com" required>
-          </div>
-        </div>
-
-        <div class="input-group">
-          <label for="login-password">Contraseña</label>
-          <div class="input-wrapper">
-            <i class="fa-solid fa-lock"></i>
-            <input type="password" id="login-password" placeholder="••••••••" required>
-            <i class="fa-solid fa-eye toggle-password" id="toggle-password"></i>
-          </div>
-        </div>
-
-        <button type="submit" class="submit-login-btn">INGRESAR</button>
-      </form>
-    </div>
-  </div>
+  <!-- BOTÓN FLOTANTE DE TRADUCCIÓN (SOLO ES / EN) -->
+  <button class="btn-lang-flotante" onclick="cycleLanguage()" title="Cambiar idioma">
+    <i class="fa-solid fa-globe"></i>
+    <span id="lang-label">ES</span>
+  </button>
 
   <!-- BOTÓN FLOTANTE DE WHATSAPP -->
   <a href="https://wa.me/573126668958" target="_blank" class="btn-wapp-flotante" aria-label="Chat WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-  <!-- SCRIPT DE TRADUCCIÓN INTERNO -->
+  <!-- SCRIPT DE TRADUCCIÓN INTERNO (ES/EN) -->
   <script>
-    const languages = ['es', 'en', 'fr'];
+    const languages = ['es', 'en'];
     let langIndex = 0;
 
     function cycleLanguage() {
