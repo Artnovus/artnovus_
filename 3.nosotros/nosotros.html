@@ -460,7 +460,6 @@
         grid-template-columns: 1fr;
       }
       
-      /* Menú desplegable móvil */
       .nav-menu {
         display: none;
         width: 100%;
@@ -531,7 +530,7 @@
           <span data-tr-es="INICIAR SESIÓN" data-tr-en="LOG IN" data-tr-fr="CONNEXION">INICIAR SESIÓN</span>
         </a>
 
-        <!-- BOTÓN DE CAMBIO DE IDIOMA (UBICADO DESPUÉS DE HABLEMOS) -->
+        <!-- BOTÓN DE CAMBIO DE IDIOMA -->
         <button class="btn-lang-toggle" onclick="cycleLanguage()">
           <i class="fa-solid fa-globe"></i> <span id="lang-label">ES</span>
         </button>
@@ -708,19 +707,20 @@
     }
   </script>
 
-  <!-- SCRIPT MENÚ HAMBURGUESA MÓVIL -->
+  <!-- SCRIPT MENÚ HAMBURGUESA MÓVIL (ISOLADO Y PROTEGIDO) -->
   <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
 
-    if (menuToggle && navMenu) {
-      menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-      });
-    }
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          navMenu.classList.toggle('active');
+        });
+      }
+    });
   </script>
-
-  <!-- Script JavaScript -->
-  <script src="script.js"></script>
 </body>
 </html>
