@@ -37,28 +37,39 @@
       overflow-x: hidden;
     }
 
-    /* --- BOTÓN DE IDIOMA --- */
-    .btn-lang-toggle {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(212, 175, 55, 0.4);
+    /* --- BOTÓN DE IDIOMA FLOTANTE (SOLO ES / EN) --- */
+    .btn-lang-flotante {
+      position: fixed;
+      bottom: 90px;
+      right: 25px;
+      width: 55px;
+      height: 55px;
+      background: #0a0a0a;
+      border: 2px solid #d4af37;
       color: #d4af37;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 8px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      display: inline-flex;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 6px;
-      transition: all 0.3s ease;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
-    .btn-lang-toggle:hover {
+    .btn-lang-flotante i {
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+
+    .btn-lang-flotante:hover {
+      transform: scale(1.1);
       background: #d4af37;
       color: #000000;
-      border-color: #d4af37;
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
     }
 
     /* --- HEADER GLOBAL (NEGRO ELEGANTE) --- */
@@ -633,7 +644,7 @@
       font-size: 0.8rem;
     }
 
-    /* --- BOTÓN WHATSAPP FLOTANTE --- */
+    /* --- BOTONES FLOTANTES --- */
     .btn-wapp-flotante {
       position: fixed;
       bottom: 25px;
@@ -648,7 +659,7 @@
       justify-content: center;
       font-size: 1.8rem;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-      z-index: 9999;
+      z-index: 1000;
       text-decoration: none;
       transition: transform 0.3s ease;
     }
@@ -665,6 +676,10 @@
 
       .videos-grid {
         grid-template-columns: 1fr;
+      }
+
+      .main-header {
+        padding: 10px 15px !important;
       }
 
       .nav-menu {
@@ -720,18 +735,18 @@
         </a>
         <div class="brand-text">
           <span class="brand-name">ARTNOVUS</span>
-          <span class="brand-tagline" data-tr-es="Agencia Multimedia" data-tr-en="Multimedia Agency" data-tr-fr="Agence Multimédia">Agencia Multimedia</span>
+          <span class="brand-tagline" data-tr-es="Agencia Multimedia" data-tr-en="Multimedia Agency">Agencia Multimedia</span>
         </div>
       </div>
 
       <!-- MENÚ DE NAVEGACIÓN -->
       <nav>
         <ul class="nav-menu" id="nav-menu">
-          <li><a href="../1.inicio/index.html" class="nav-link" data-tr-es="INICIO" data-tr-en="HOME" data-tr-fr="ACCUEIL">INICIO</a></li>
-          <li><a href="../3.nosotros/nosotros.html" class="nav-link" data-tr-es="NOSOTROS" data-tr-en="ABOUT" data-tr-fr="À PROPOS">NOSOTROS</a></li>
-          <li><a href="../5.portafolio/portafolio.html" class="nav-link active" data-tr-es="PORTAFOLIO" data-tr-en="PORTFOLIO" data-tr-fr="PORTFOLIO">PORTAFOLIO</a></li>
-          <li><a href="../2.servicios/servicios.html" class="nav-link" data-tr-es="SERVICIOS" data-tr-en="SERVICES" data-tr-fr="SERVICES">SERVICIOS</a></li>
-          <li><a href="../4.contacto/contacto.html" class="nav-link" data-tr-es="CONTÁCTANOS" data-tr-en="CONTACT US" data-tr-fr="CONTACT">CONTÁCTANOS</a></li>
+          <li><a href="../1.inicio/index.html" class="nav-link" data-tr-es="INICIO" data-tr-en="HOME">INICIO</a></li>
+          <li><a href="../3.nosotros/nosotros.html" class="nav-link" data-tr-es="NOSOTROS" data-tr-en="ABOUT">NOSOTROS</a></li>
+          <li><a href="../5.portafolio/portafolio.html" class="nav-link active" data-tr-es="PORTAFOLIO" data-tr-en="PORTFOLIO">PORTAFOLIO</a></li>
+          <li><a href="../2.servicios/servicios.html" class="nav-link" data-tr-es="SERVICIOS" data-tr-en="SERVICES">SERVICIOS</a></li>
+          <li><a href="../4.contacto/contacto.html" class="nav-link" data-tr-es="CONTÁCTANOS" data-tr-en="CONTACT US">CONTÁCTANOS</a></li>
         </ul>
       </nav>
 
@@ -739,13 +754,8 @@
       <div class="header-actions">
         <a href="../ingreso.html" class="action-btn">
           <i class="fa-solid fa-user-gear"></i>
-          <span data-tr-es="INICIAR SESIÓN" data-tr-en="LOG IN" data-tr-fr="CONNEXION">INICIAR SESIÓN</span>
+          <span data-tr-es="INICIAR SESIÓN" data-tr-en="LOG IN">INICIAR SESIÓN</span>
         </a>
-
-        <!-- BOTÓN DE CAMBIO DE IDIOMA -->
-        <button class="btn-lang-toggle" onclick="cycleLanguage()">
-          <i class="fa-solid fa-globe"></i> <span id="lang-label">ES</span>
-        </button>
 
         <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
           <i class="fa-solid fa-bars"></i>
@@ -762,50 +772,50 @@
       <div class="hero-overlay"></div>
 
       <div class="hero-content-wrapper">
-        <h1 data-tr-es="NUESTRO PORTAFOLIO" data-tr-en="OUR PORTFOLIO" data-tr-fr="NOTRE PORTFOLIO">NUESTRO PORTAFOLIO</h1>
-        <p data-tr-es="Proyectos creados con estrategia, diseño e innovación digital para potenciar la presencia de tu marca." data-tr-en="Projects created with strategy, design, and digital innovation to enhance your brand's presence." data-tr-fr="Projets créés avec stratégie, design et innovation numérique pour valoriser la présence de votre marque.">Proyectos creados con estrategia, diseño e innovación digital para potenciar la presencia de tu marca.</p>
+        <h1 data-tr-es="NUESTRO PORTAFOLIO" data-tr-en="OUR PORTFOLIO">NUESTRO PORTAFOLIO</h1>
+        <p data-tr-es="Proyectos creados con estrategia, diseño e innovación digital para potenciar la presencia de tu marca." data-tr-en="Projects created with strategy, design, and digital innovation to enhance your brand's presence.">Proyectos creados con estrategia, diseño e innovación digital para potenciar la presencia de tu marca.</p>
       </div>
     </section>
 
     <!-- BARRA DE FILTROS INTERACTIVOS -->
     <div class="portfolio-filters">
-      <button class="filter-btn active" data-filter="all" data-tr-es="TODOS" data-tr-en="ALL" data-tr-fr="TOUS">TODOS</button>
-      <button class="filter-btn" data-filter="web" data-tr-es="IDENTIDAD VISUAL" data-tr-en="VISUAL IDENTITY" data-tr-fr="IDENTITÉ VISUELLE">IDENTIDAD VISUAL</button>
-      <button class="filter-btn" data-filter="branding" data-tr-es="ANIMACIÓN" data-tr-en="ANIMATION" data-tr-fr="ANIMATION">ANIMACIÓN</button>
-      <button class="filter-btn" data-filter="redes" data-tr-es="PUBLICIDAD" data-tr-en="ADVERTISING" data-tr-fr="PUBLICITÉ">PUBLICITÉ</button>
-      <button class="filter-btn" data-filter="audiovisual" data-tr-es="AUDIOVISUAL" data-tr-en="AUDIOVISUAL" data-tr-fr="AUDIOVISUEL">AUDIOVISUAL</button>
+      <button class="filter-btn active" data-filter="all" data-tr-es="TODOS" data-tr-en="ALL">TODOS</button>
+      <button class="filter-btn" data-filter="web" data-tr-es="IDENTIDAD VISUAL" data-tr-en="VISUAL IDENTITY">IDENTIDAD VISUAL</button>
+      <button class="filter-btn" data-filter="branding" data-tr-es="ANIMACIÓN" data-tr-en="ANIMATION">ANIMACIÓN</button>
+      <button class="filter-btn" data-filter="redes" data-tr-es="PUBLICIDAD" data-tr-en="ADVERTISING">PUBLICIDAD</button>
+      <button class="filter-btn" data-filter="audiovisual" data-tr-es="AUDIOVISUAL" data-tr-en="AUDIOVISUAL">AUDIOVISUAL</button>
     </div>
 
     <!-- SECCIÓN DE EVIDENCIAS DE TRABAJO REAL -->
     <section class="portfolio-section">
       <div class="portfolio-stats-banner">
-        <span class="stats-badge-main" data-tr-es="+120 Proyectos completados" data-tr-en="+120 Completed projects" data-tr-fr="+120 Projets réalisés">+120 Proyectos completados</span>
+        <span class="stats-badge-main" data-tr-es="+120 Proyectos completados" data-tr-en="+120 Completed projects">+120 Proyectos completados</span>
       </div>
-      <h2 class="section-title" data-tr-es="EVIDENCIAS DE TRABAJO REAL" data-tr-en="REAL WORK EVIDENCE" data-tr-fr="PREUVES DE TRAVAIL RÉEL">EVIDENCIAS DE TRABAJO REAL</h2>
-      <p class="portfolio-subtitle" data-tr-es="Descubre el impacto y los resultados tangibles que hemos logrado para nuestros clientes." data-tr-en="Discover the impact and tangible results we have achieved for our clients." data-tr-fr="Découvrez l'impact et les résultats tangibles que nous avons obtenus pour nos clients.">Descubre el impacto y los resultados tangibles que hemos logrado para nuestros clientes.</p>
+      <h2 class="section-title" data-tr-es="EVIDENCIAS DE TRABAJO REAL" data-tr-en="REAL WORK EVIDENCE">EVIDENCIAS DE TRABAJO REAL</h2>
+      <p class="portfolio-subtitle" data-tr-es="Descubre el impacto y los resultados tangibles que hemos logrado para nuestros clientes." data-tr-en="Discover the impact and tangible results we have achieved for our clients.">Descubre el impacto y los resultados tangibles que hemos logrado para nuestros clientes.</p>
 
       <div class="portfolio-grid">
         <!-- TARJETA 1 -->
         <div class="portfolio-card" data-category="web">
-          <div class="card-impact-badge" data-tr-es="Impacto +180%" data-tr-en="Impact +180%" data-tr-fr="Impact +180%">Impacto +180%</div>
-          <h4 data-tr-es="IDENTIDAD VISUAL" data-tr-en="VISUAL IDENTITY" data-tr-fr="IDENTITÉ VISUELLE">IDENTIDAD VISUAL</h4>
+          <div class="card-impact-badge" data-tr-es="Impacto +180%" data-tr-en="Impact +180%">Impacto +180%</div>
+          <h4 data-tr-es="IDENTIDAD VISUAL" data-tr-en="VISUAL IDENTITY">IDENTIDAD VISUAL</h4>
           <div class="card-img-wrapper">
             <img src="imagenes portafolio/identidad visual.jpg" alt="Desarrollo Web" class="foto-hover">
           </div>
           <div class="card-execution-info">
-            <h5 data-tr-es="Lo que se realizó:" data-tr-en="What was done:" data-tr-fr="Ce qui a été fait :">Lo que se realizó:</h5>
+            <h5 data-tr-es="Lo que se realizó:" data-tr-en="What was done:">Lo que se realizó:</h5>
             <ul>
-              <li data-tr-es="Diseño de logotipo corporativo e isotipo." data-tr-en="Corporate logo and isotype design." data-tr-fr="Conception de logo d'entreprise et isotype.">Diseño de logotipo corporativo e isotipo.</li>
-              <li data-tr-es="Definición de paleta de colores e identidad visual." data-tr-en="Color palette definition and visual identity." data-tr-fr="Définition de la palette de couleurs et identité visuelle.">Definición de paleta de colores e identidad visual.</li>
-              <li data-tr-es="Manual de marca y tipografías oficiales." data-tr-en="Brand manual and official typography." data-tr-fr="Manuel de marque et typographies officielles.">Manual de marca y tipografías oficiales.</li>
+              <li data-tr-es="Diseño de logotipo corporativo e isotipo." data-tr-en="Corporate logo and isotype design.">Diseño de logotipo corporativo e isotipo.</li>
+              <li data-tr-es="Definición de paleta de colores e identidad visual." data-tr-en="Color palette definition and visual identity.">Definición de paleta de colores e identidad visual.</li>
+              <li data-tr-es="Manual de marca y tipografías oficiales." data-tr-en="Brand manual and official typography.">Manual de marca y tipografías oficiales.</li>
             </ul>
           </div>
         </div>
 
         <!-- TARJETA 2 -->
         <div class="portfolio-card" data-category="branding">
-          <div class="card-impact-badge" data-tr-es="Impacto +75%" data-tr-en="Impact +75%" data-tr-fr="Impact +75%">Impacto +75%</div>
-          <h4 data-tr-es="ANIMACIÓN" data-tr-en="ANIMATION" data-tr-fr="ANIMATION">ANIMACIÓN</h4>
+          <div class="card-impact-badge" data-tr-es="Impacto +75%" data-tr-en="Impact +75%">Impacto +75%</div>
+          <h4 data-tr-es="ANIMACIÓN" data-tr-en="ANIMATION">ANIMACIÓN</h4>
           <div class="card-img-wrapper">
             <video autoplay loop muted playsinline class="foto-hover">
               <source src="imagenes portafolio/ANIMACIÓN LOGO.mp4" type="video/mp4">
@@ -813,45 +823,45 @@
             </video>
           </div>
           <div class="card-execution-info">
-            <h5 data-tr-es="Lo que se realizó:" data-tr-en="What was done:" data-tr-fr="Ce qui a été fait :">Lo que se realizó:</h5>
+            <h5 data-tr-es="Lo que se realizó:" data-tr-en="What was done:">Lo que se realizó:</h5>
             <ul>
-              <li data-tr-es="Animación 2D / 3D de isotipo y logotipo corporativo." data-tr-en="2D / 3D corporate logo and isotype animation." data-tr-fr="Animation 2D / 3D du logo et de l'isotype de l'entreprise.">Animación 2D / 3D de isotipo y logotipo corporativo.</li>
-              <li data-tr-es="Modelado y renderizado con acabado dorado." data-tr-en="Modeling and rendering with golden finish." data-tr-fr="Modélisation et rendu avec finition dorée.">Modelado y renderizado con acabado dorado.</li>
-              <li data-tr-es="Exportación de intro/outro para reels y piezas audiovisuales." data-tr-en="Intro/outro export for reels and audiovisual pieces." data-tr-fr="Exportation intro/outro pour reels et pièces média.">Exportación de intro/outro para reels y piezas audiovisuales.</li>
+              <li data-tr-es="Animación 2D / 3D de isotipo y logotipo corporativo." data-tr-en="2D / 3D corporate logo and isotype animation.">Animación 2D / 3D de isotipo y logotipo corporativo.</li>
+              <li data-tr-es="Modelado y renderizado con acabado dorado." data-tr-en="Modeling and rendering with golden finish.">Modelado y renderizado con acabado dorado.</li>
+              <li data-tr-es="Exportación de intro/outro para reels y piezas audiovisuales." data-tr-en="Intro/outro export for reels and audiovisual pieces.">Exportación de intro/outro para reels y piezas audiovisuales.</li>
             </ul>
           </div>
         </div>
 
         <!-- TARJETA 3 -->
         <div class="portfolio-card" data-category="redes">
-          <div class="card-impact-badge" data-tr-es="Impacto +90%" data-tr-en="Impact +90%" data-tr-fr="Impact +90%">Impacto +90%</div>
-          <h4 data-tr-es="PUBLICIDAD" data-tr-en="ADVERTISING" data-tr-fr="PUBLICITÉ">PUBLICIDAD</h4>
+          <div class="card-impact-badge" data-tr-es="Impacto +90%" data-tr-en="Impact +90%">Impacto +90%</div>
+          <h4 data-tr-es="PUBLICIDAD" data-tr-en="ADVERTISING">PUBLICIDAD</h4>
           <div class="card-img-wrapper">
             <img src="imagenes portafolio/publicidad.jpg" alt="Diseño para redes" class="foto-hover">
           </div>
           <div class="card-execution-info">
-            <h5 data-tr-es="Lo que se realizó:" data-tr-en="What was done:" data-tr-fr="Ce qui a été fait :">Lo que se realizó:</h5>
+            <h5 data-tr-es="Lo que se realizó:" data-tr-en="What was done:">Lo que se realizó:</h5>
             <ul>
-              <li data-tr-es="Diseño de banner publicitario y pieza gráfica promocional." data-tr-en="Advertising banner and promotional graphic design." data-tr-fr="Conception de bannière publicitaire et visuel promotionnel.">Diseño de banner publicitario y pieza gráfica promocional.</li>
-              <li data-tr-es="Edición y retoque fotográfico de producto gastronómico." data-tr-en="Photo editing and retouching for food product." data-tr-fr="Édition et retouche photo de produit gastronomique.">Edición y retoque fotográfico de producto gastronómico.</li>
-              <li data-tr-es="Composición tipográfica y llamada a la acción (Call to Action)." data-tr-en="Typographic composition and call to action (CTA)." data-tr-fr="Composition typographique et appel à l'action (CTA).">Composición tipográfica y llamada a la acción (Call to Action).</li>
+              <li data-tr-es="Diseño de banner publicitario y pieza gráfica promocional." data-tr-en="Advertising banner and promotional graphic design.">Diseño de banner publicitario y pieza gráfica promocional.</li>
+              <li data-tr-es="Edición y retoque fotográfico de producto gastronómico." data-tr-en="Photo editing and retouching for food product.">Edición y retoque fotográfico de producto gastronómico.</li>
+              <li data-tr-es="Composición tipográfica y llamada a la acción (Call to Action)." data-tr-en="Typographic composition and call to action (CTA).">Composición tipográfica y llamada a la acción (Call to Action).</li>
             </ul>
           </div>
         </div>
 
         <!-- TARJETA 4 -->
         <div class="portfolio-card" data-category="redes">
-          <div class="card-impact-badge" data-tr-es="Impacto +220%" data-tr-en="Impact +220%" data-tr-fr="Impact +220%">Impacto +220%</div>
-          <h4 data-tr-es="TARJETA DE PRESENTACIÓN" data-tr-en="BUSINESS CARD" data-tr-fr="CARTE DE VISITE">TARJETA DE PRESENTACIÓN</h4>
+          <div class="card-impact-badge" data-tr-es="Impacto +220%" data-tr-en="Impact +220%">Impacto +220%</div>
+          <h4 data-tr-es="TARJETA DE PRESENTACIÓN" data-tr-en="BUSINESS CARD">TARJETA DE PRESENTACIÓN</h4>
           <div class="card-img-wrapper">
             <img src="imagenes portafolio/tarjeta de presentacion.png" alt="Marketing Digital" class="foto-hover">
           </div>
           <div class="card-execution-info">
-            <h5 data-tr-es="Lo que se realizó:" data-tr-en="What was done:" data-tr-fr="Ce qui a été fait :">Lo que se realizó:</h5>
+            <h5 data-tr-es="Lo que se realizó:" data-tr-en="What was done:">Lo que se realizó:</h5>
             <ul>
-              <li data-tr-es="Diseño editorial corporativo tiro y retiro (frente y reverso)." data-tr-en="Corporate editorial design front and back." data-tr-fr="Design éditorial d'entreprise recto et verso.">Diseño editorial corporativo tiro y retiro (frente y reverso).</li>
-              <li data-tr-es="Organización de datos de contacto, tienda virtual y horarios." data-tr-en="Organization of contact details, online store, and schedules." data-tr-fr="Organisation des coordonnées, boutique en ligne et horaires.">Organización de datos de contacto, tienda virtual y horarios.</li>
-              <li data-tr-es="Preparación de archivos finales para impresión en alta resolución." data-tr-en="Final file preparation for high-resolution printing." data-tr-fr="Préparation des fichiers finaux pour impression haute résolution.">Preparación de archivos finales para impresión en alta resolución.</li>
+              <li data-tr-es="Diseño editorial corporativo tiro y retiro (frente y reverso)." data-tr-en="Corporate editorial design front and back.">Diseño editorial corporativo tiro y retiro (frente y reverso).</li>
+              <li data-tr-es="Organización de datos de contacto, tienda virtual y horarios." data-tr-en="Organization of contact details, online store, and schedules.">Organización de datos de contacto, tienda virtual y horarios.</li>
+              <li data-tr-es="Preparación de archivos finales para impresión en alta resolución." data-tr-en="Final file preparation for high-resolution printing.">Preparación de archivos finales para impresión en alta resolución.</li>
             </ul>
           </div>
         </div>
@@ -861,7 +871,7 @@
     <!-- SECCIÓN DE PROYECTOS AUDIOVISUALES -->
     <section class="video-projects-section" id="audiovisual-section">
       <div class="video-container">
-        <h2 class="section-title" data-tr-es="PROYECTOS AUDIOVISUALES" data-tr-en="AUDIOVISUAL PROJECTS" data-tr-fr="PROJETS AUDIOVISUELS">PROYECTOS AUDIOVISUALES</h2>
+        <h2 class="section-title" data-tr-es="PROYECTOS AUDIOVISUALES" data-tr-en="AUDIOVISUAL PROJECTS">PROYECTOS AUDIOVISUALES</h2>
        
         <div class="videos-grid">
           <!-- VIDEO 1 -->
@@ -873,8 +883,8 @@
               </video>
             </div>
             <div class="video-details">
-              <h3 data-tr-es="DÍA DE LAS MATEMÁTICAS" data-tr-en="MATHEMATICS DAY" data-tr-fr="JOURNÉE DES MATHÉMATIQUES">DÍA DE LAS MATEMÁTICAS</h3>
-              <p data-tr-es="Actividad dedicada a celebrar las matemáticas mediante juegos y retos, demostrando que pueden ser divertidas y están presentes en nuestra vida diaria. El Día Internacional de las Matemáticas se celebra el 14 de marzo." data-tr-en="Activity dedicated to celebrating mathematics through games and challenges, showing that they can be fun and are present in our daily lives. International Mathematics Day is celebrated on March 14." data-tr-fr="Activité dédiée à la célébration des mathématiques à travers des jeux et des défis, montrant qu'elles peuvent être ludiques et présentes dans notre vie quotidienne. La Journée internationale des mathématiques est célébrée le 14 mars.">Actividad dedicada a celebrar las matemáticas mediante juegos y retos, demostrando que pueden ser divertidas y están presentes en nuestra vida diaria. El Día Internacional de las Matemáticas se celebra el 14 de marzo.</p>
+              <h3 data-tr-es="DÍA DE LAS MATEMÁTICAS" data-tr-en="MATHEMATICS DAY">DÍA DE LAS MATEMÁTICAS</h3>
+              <p data-tr-es="Actividad dedicada a celebrar las matemáticas mediante juegos y retos, demostrando que pueden ser divertidas y están presentes en nuestra vida diaria. El Día Internacional de las Matemáticas se celebra el 14 de marzo." data-tr-en="Activity dedicated to celebrating mathematics through games and challenges, showing that they can be fun and are present in our daily lives. International Mathematics Day is celebrated on March 14.">Actividad dedicada a celebrar las matemáticas mediante juegos y retos, demostrando que pueden ser divertidas y están presentes en nuestra vida diaria. El Día Internacional de las Matemáticas se celebra el 14 de marzo.</p>
             </div>
           </article>
 
@@ -887,8 +897,8 @@
               </video>
             </div>
             <div class="video-details">
-              <h3 data-tr-es="LAS ESPECIALIDADES" data-tr-en="THE SPECIALTIES" data-tr-fr="LES SPÉCIALITÉS">LAS ESPECIALIDADES</h3>
-              <p data-tr-es="Estudiantes de primaria imaginan qué quieren ser cuando crezcan, mientras se muestran los diferentes técnicos que ofrece el SENA en el colegio y las oportunidades que brindan para su futuro." data-tr-en="Primary students imagine what they want to be when they grow up, while showcasing the different technicians offered by the school and the opportunities they provide for their future." data-tr-fr="Des élèves du primaire imaginent ce qu'ils veulent être quand ils seront grands, tout en présentant les différentes filières techniques proposées par l'école et les opportunités qu'elles offrent pour leur avenir.">Estudiantes de primaria imaginan qué quieren ser cuando crezcan, mientras se muestran los diferentes técnicos que ofrece el SENA en el colegio y las oportunidades que brindan para su futuro.</p>
+              <h3 data-tr-es="LAS ESPECIALIDADES" data-tr-en="THE SPECIALTIES">LAS ESPECIALIDADES</h3>
+              <p data-tr-es="Estudiantes de primaria imaginan qué quieren ser cuando crezcan, mientras se muestran los diferentes técnicos que ofrece el SENA en el colegio y las oportunidades que brindan para su futuro." data-tr-en="Primary students imagine what they want to be when they grow up, while showcasing the different technicians offered by the school and the opportunities they provide for their future.">Estudiantes de primaria imaginan qué quieren ser cuando crezcan, mientras se muestran los diferentes técnicos que ofrece el SENA en el colegio y las oportunidades que brindan para su futuro.</p>
             </div>
           </article>
         </div>
@@ -898,14 +908,14 @@
     <!-- LLAMADO A LA ACCIÓN (CTA) FINAL -->
     <section class="cta-banner-section">
       <div class="cta-banner-box">
-        <h3 data-tr-es="¿TIENES UN PROYECTO EN MENTE?" data-tr-en="DO YOU HAVE A PROJECT IN MIND?" data-tr-fr="AVEZ-VOUS UN PROJET EN TÊTE ?">¿TIENES UN PROYECTO EN MENTE?</h3>
-        <p data-tr-es="Llevemos tu marca al siguiente nivel con soluciones multimedia profesionales." data-tr-en="Let's take your brand to the next level with professional multimedia solutions." data-tr-fr="Amenons votre marque au niveau supérieur avec des solutions multimédias professionnelles.">Llevemos tu marca al siguiente nivel con soluciones multimedia profesionales.</p>
-        <a href="../4.contacto/contacto.html" class="btn-cta-gold" data-tr-es="CONTÁCTANOS AHORA" data-tr-en="CONTACT US NOW" data-tr-fr="CONTACTEZ-NOUS MAINTENANT">CONTÁCTANOS AHORA</a>
+        <h3 data-tr-es="¿TIENES UN PROYECTO EN MENTE?" data-tr-en="DO YOU HAVE A PROJECT IN MIND?">¿TIENES UN PROYECTO EN MENTE?</h3>
+        <p data-tr-es="Llevemos tu marca al siguiente nivel con soluciones multimedia profesionales." data-tr-en="Let's take your brand to the next level with professional multimedia solutions.">Llevemos tu marca al siguiente nivel con soluciones multimedia profesionales.</p>
+        <a href="../4.contacto/contacto.html" class="btn-cta-gold" data-tr-es="CONTÁCTANOS AHORA" data-tr-en="CONTACT US NOW">CONTÁCTANOS AHORA</a>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER GLOBAL -->
+  <!-- FOOTER -->
   <footer class="main-footer">
     <div class="footer-content">
       <div class="footer-info">
@@ -918,23 +928,29 @@
       </div>
       <div class="footer-info">
         <i class="fa-solid fa-location-dot"></i>
-        <span data-tr-es="Cali, Colombia" data-tr-en="Cali, Colombia" data-tr-fr="Cali, Colombie">Cali, Colombia</span>
+        <span data-tr-es="Cali, Colombia" data-tr-en="Cali, Colombia">Cali, Colombia</span>
       </div>
     </div>
-
     <div class="footer-copy">
-      <p data-tr-es="&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO ." data-tr-en="&copy; 2026 ARTNOVUS. All rights reserved BY MELANIE QUINTERO ." data-tr-fr="&copy; 2026 ARTNOVUS. Tous droits réservés PAR MELANIE QUINTERO .">&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO .</p>
+      <p data-tr-es="&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO ." data-tr-en="&copy; 2026 ARTNOVUS. All rights reserved BY MELANIE QUINTERO .">&copy; 2026 ARTNOVUS. Todos los derechos reservados POR MELANIE QUINTERO .</p>
     </div>
   </footer>
 
-  <!-- BOTÓN WHATSAPP FLOTANTE -->
-  <a href="https://wa.me/573126668958?text=Hola,%20quisiera%20cotizar%20un%20proyecto%20con%20ARTNOVUS." target="_blank" class="btn-wapp-flotante" aria-label="Chat WhatsApp">
+  <!-- BOTÓN FLOTANTE DE TRADUCCIÓN (SOLO ES / EN) -->
+  <button class="btn-lang-flotante" onclick="cycleLanguage()" title="Cambiar idioma">
+    <i class="fa-solid fa-globe"></i>
+    <span id="lang-label">ES</span>
+  </button>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a href="https://wa.me/573126668958?text=Hola,%20quisiera%20más%20información" class="btn-wapp-flotante" target="_blank" rel="noopener noreferrer" title="Chat de WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-  <!-- SCRIPT DE TRADUCCIÓN MULTILENGUAJE -->
+  <!-- SCRIPTS -->
   <script>
-    const languages = ['es', 'en', 'fr'];
+    // SCRIPT DE TRADUCCIÓN (SOLO ESPAÑOL E INGLÉS)
+    const languages = ['es', 'en'];
     let langIndex = 0;
 
     function cycleLanguage() {
@@ -952,51 +968,45 @@
         }
       });
     }
-  </script>
 
-  <!-- SCRIPT MENÚ HAMBURGUESA MÓVIL -->
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
+    document.addEventListener('DOMContentLoaded', function() {
+      // Menú hamburguesa móvil
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
 
-    if (menuToggle && navMenu) {
-      menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-      });
-    }
-  </script>
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          navMenu.classList.toggle('active');
+        });
+      }
 
-<!-- SCRIPT DE FILTROS INTERACTIVOS PARA EL PORTAFOLIO -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const filterButtons = document.querySelectorAll('.filter-btn');
+      // Filtros interactivos del portafolio
+      const filterBtns = document.querySelectorAll('.filter-btn');
       const portfolioCards = document.querySelectorAll('.portfolio-card');
-      const audiovisualSection = document.getElementById('audiovisual-section');
+      const videoSection = document.getElementById('audiovisual-section');
 
-      filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          // 1. Remueve la clase active de todos los botones y se la asigna al presionado
-          filterButtons.forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
 
-          const filterValue = button.getAttribute('data-filter');
+          const filter = btn.getAttribute('data-filter');
 
-          // 2. Filtra las tarjetas de evidencias
           portfolioCards.forEach(card => {
             const category = card.getAttribute('data-category');
-            if (filterValue === 'all' || filterValue === category) {
+            if (filter === 'all' || filter === category) {
               card.classList.remove('hide');
             } else {
               card.classList.add('hide');
             }
           });
 
-          // 3. Muestra u oculta la sección de videos según el filtro
-          if (audiovisualSection) {
-            if (filterValue === 'all' || filterValue === 'audiovisual') {
-              audiovisualSection.classList.remove('hide');
+          if (videoSection) {
+            if (filter === 'all' || filter === 'audiovisual') {
+              videoSection.classList.remove('hide');
             } else {
-              audiovisualSection.classList.add('hide');
+              videoSection.classList.add('hide');
             }
           }
         });
