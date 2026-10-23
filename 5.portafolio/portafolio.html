@@ -668,8 +668,33 @@
       transform: scale(1.1);
     }
 
-    /* RESPONSIVE MÓVIL (MENÚ DESPLEGABLE) */
+    /* RESPONSIVE MÓVIL (MENÚ DESPLEGABLE Y HEADER) */
     @media (max-width: 992px) {
+      .main-header {
+        padding: 10px 15px !important;
+      }
+
+      .header-container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+      }
+
+      .header-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        margin-left: auto !important;
+        margin-right: 10px !important;
+      }
+
+      .action-btn {
+        padding: 6px 10px !important;
+        font-size: 0.7rem !important;
+        white-space: nowrap !important;
+      }
+
       .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -678,22 +703,20 @@
         grid-template-columns: 1fr;
       }
 
-      .main-header {
-        padding: 10px 15px !important;
-      }
-
       .nav-menu {
         display: none !important;
-        width: 100%;
-        flex-direction: column;
-        background-color: #0a0a0a;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 20px 0;
-        border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.9);
-        z-index: 99999;
+        position: fixed !important;
+        top: 60px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100vw !important;
+        flex-direction: column !important;
+        background-color: #0a0a0a !important;
+        padding: 25px 0 !important;
+        border-bottom: 2px solid rgba(212, 175, 55, 0.4) !important;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.95) !important;
+        z-index: 999999 !important;
+        gap: 15px !important;
       }
 
       .nav-menu.active {
@@ -701,18 +724,26 @@
       }
 
       .nav-menu li {
-        width: 100%;
-        text-align: center;
+        width: 100% !important;
+        text-align: center !important;
       }
 
       .nav-link {
         display: block !important;
-        padding: 12px !important;
-        width: 100% !important;
+        padding: 10px 20px !important;
+        width: 85% !important;
+        margin: 0 auto !important;
+        border-radius: 20px !important;
       }
 
       .menu-toggle {
         display: block !important;
+        background: none !important;
+        border: none !important;
+        font-size: 1.4rem !important;
+        color: #d4af37 !important;
+        cursor: pointer !important;
+        padding: 4px !important;
       }
     }
 
@@ -756,11 +787,11 @@
           <i class="fa-solid fa-user-gear"></i>
           <span data-tr-es="INICIAR SESIÓN" data-tr-en="LOG IN">INICIAR SESIÓN</span>
         </a>
-
-        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
-          <i class="fa-solid fa-bars"></i>
-        </button>
       </div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
     </div>
   </header>
