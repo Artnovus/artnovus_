@@ -15,7 +15,7 @@
   <style>
 
 /* =========================================================
-   MENÚ HAMBURGUESA Y RESPONSIVO MÓVIL CORREGIDO
+   MENÚ HAMBURGUESA Y RESPONSIVO MÓVIL
    ========================================================= */
 @media (max-width: 992px) {
   .main-header {
@@ -37,7 +37,6 @@
     margin-right: 10px !important;
   }
 
-  /* Ajuste de botón Iniciar Sesión en móvil para no tapar el menú */
   .action-btn {
     padding: 6px 10px !important;
     font-size: 0.7rem !important;
@@ -176,7 +175,7 @@
     }
 
     /* =========================================================
-       HEADER / BARRA DE NAVEGACIÓN (FONDO NEGRO ELEGANTE)
+       HEADER / BARRA DE NAVEGACIÓN
        ========================================================= */
     .main-header {
       background-color: #0a0a0a;
@@ -510,11 +509,11 @@
     }
 
     /* =========================================================
-       CHATBOT DE PREGUNTAS FRECUENTES (FAQ - REUBICADO ARRIBA DE TRADUCIR)
+       CHATBOT DE PREGUNTAS FRECUENTES (FAQ)
        ========================================================= */
     .artnovus-chat-widget {
       position: fixed;
-      bottom: 155px; /* Se eleva sobre el botón de traducción */
+      bottom: 155px;
       right: 25px;
       z-index: 9998;
       font-family: 'Montserrat', sans-serif;
@@ -943,10 +942,10 @@
     }
   </script>
 
-  <!-- Script JavaScript principal y del Chatbot FAQ -->
-  <script src="script.js"></script>
+  <!-- SCRIPT JS DEL MENÚ HAMBURGUESA Y CHATBOT -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // EVENTO PARA ABRIR Y CERRAR EL MENÚ MÓVIL
       const menuToggle = document.getElementById('menu-toggle');
       const navMenu = document.getElementById('nav-menu');
 
@@ -957,6 +956,7 @@
         });
       }
 
+      // CHATBOT FAQ
       const chatToggleBtn = document.getElementById('chat-toggle-btn');
       const chatWindow = document.getElementById('chat-window');
       const chatCloseBtn = document.getElementById('chat-close-btn');
